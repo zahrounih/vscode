@@ -21,6 +21,7 @@ foreach ($bie in get-content $Path) {
                 $stat=$status.sta
                 $hand=$handler.id
                 $buf=$handler.buffer
+                $buf
 
                 $string = ""
                 $string="exec pr_ab_buf_alc 'I',$i,'$bie','$sor','$stat',$hand,$buf,41"
