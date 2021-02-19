@@ -1,0 +1,2004 @@
+\documentclass{report}
+\usepackage[table]{xcolor}
+\usepackage{a4}
+\usepackage[a4paper, left=15mm,right=15mm,bottom=20mm,top=20mm]{geometry}
+\usepackage{booktabs}
+\usepackage{pdflscape}
+\usepackage{blindtext}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{adjustbox}
+\usepackage{longtable}
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks,
+    citecolor=black,
+    filecolor=black,
+    linkcolor=black,
+    urlcolor=black
+}
+\definecolor{lightgray}{gray}{0.9}
+\begin{document}
+\begin{titlepage}
+    \begin{center}
+        \vspace*{1cm}
+            
+        \Huge
+        \textbf{ABISv2 sorting tests results}
+            
+        \vspace{0.5cm}
+        \LARGE
+        Handler: AL / Sorter: B
+        
+        
+        \includegraphics[width=0.4\textwidth]{BAC1}
+        \Large            
+    \end{center}
+\end{titlepage}
+\tableofcontents
+\begin{landscape}
+\chapter*{The big picture}
+\addcontentsline{toc}{chapter}{The big picture}
+\begin{center}
+\includegraphics[width=1.1\textwidth]{visio}
+\end{center}
+\end{landscape}
+\chapter*{Chutes allocations}
+\addcontentsline{toc}{chapter}{Chutes allocations}
+\subsection*{ABISv2 allocations}
+\paragraph{}
+\begin{longtable}{cccccc}    \toprule
+\rowcolor{white!50}
+\textbf{Scheduled Date} & \textbf{Flight} & \textbf{Sorting} & \textbf{Chute} & \textbf{Open} & \textbf{Close} \\\midrule
+\rowcolors{2}{gray!25}{white}
+03-02-2021 & TU100 & @@@@@@@@@@@@@@@@@@@@@@@@@@@@@ & B20 & 08:05:00 & 10:05:00\\
+03-02-2021 & TU100 & @@@@@@@@@@@@@@@@@@@@@@@@@@@Y@ & B21 & 08:05:00 & 10:05:00\\
+03-02-2021 & TU1000 & @@@@@@@@@@@@@@@@@@@@@@@@@@@@@ & B22 & 08:30:00 & 10:30:00\\
+03-02-2021 & TU1000 & @@@@@@@@@@@@@@@@@@@@@@@@@@@C@ & B23 & 08:30:00 & 10:30:00\\
+03-02-2021 & TU200 & @@@@@@@@@@@@@@@@@@@@@@@@@@@@@ & B24 & 07:42:00 & 09:02:00\\
+03-02-2021 & TU200 & @@@@@@@@@@@@@@@@@@@@@@@@CEQ@@ & B25 & 07:42:00 & 09:02:00\\
+03-02-2021 & TU5000 & @@@@@@@@@@@@@@@@@@@@@@@@@@@@@ & B26 & 07:42:00 & 09:42:00\\
+03-02-2021 & TU5000 & @@@@@@@@@@@@@@@@@@@@@@@@FLR@@ & B27 & 07:42:00 & 09:42:00\\
+03-02-2021 & TU8000A & @@@@@@@@@@@@@@@@@@@@@@@@@@@@@ & B28 & 07:42:00 & 09:02:00\\
+03-02-2021 & TU8000A & @@@@@@@@@@@@@@@@@@@@@@@@MAD@@ & B29 & 07:42:00 & 09:02:00\\
+03-02-2021 & TU7000 & @@@@@@@@@@@@@@@@@@@@@@@@@@@@@ & B30 & 07:42:00 & 09:02:00\\
+03-02-2021 & TU7000 & @@@@@@@@@XXX9999 @@@@@@@@@@@@ & B31 & 07:42:00 & 09:02:00\\
+03-02-2021 & TU7000 & @@@@@@@@@@@@@@@@@@@@@@@@BOS@@ & B32 & 07:42:00 & 09:02:00\\
+03-02-2021 & TU7000 & @@@@@@@@@@@@@@@@@@@@@@@@BOS@@ & B33 & 07:42:00 & 09:02:00\\
+03-02-2021 & FR1000 & @@@@@@@@@@@@@@@@@@@@@@@@@@@@@ & B34 & 05:00:00 & 07:43:00\\
+03-02-2021 & FR1000 & @@@@@@@@@@@@@@@@@@@@@@@@@@@@L & B35 & 05:00:00 & 07:43:00\\
+03-02-2021 & FR100 & @@@@@@@@@@@@@@@@@@@@@@@@@@@@@ & B36 & 05:00:00 & 07:43:00\\
+03-02-2021 & FR100 & @@@@@@@@@@@@@@@@@@@@@@@@@@@@L & B37 & 05:00:00 & 07:43:00\\
+\bottomrule
+\end{longtable}
+\chapter*{Local and Transfer bags}
+\addcontentsline{toc}{chapter}{Local and Transfer bags}
+\section*{Simulation bag 1}
+\subsection*{ABISv2 bagtag: 4002000000 Outbound flight: TU100}
+\paragraph{}
+\begin{longtable}{cccccccc}    \toprule
+\rowcolor{white!50}
+\textbf{Ev.Type} & \textbf{Ev.Location} & \textbf{Ev.Time} & \textbf{Outbound} & \textbf{Bag Stat.} & \textbf{BIE} & \textbf{toBIE} & \textbf{Matches ABISv1} \\\midrule
+B & CRWAA & 09:06:02  & CEQ &  &  &  & OK\\
+P & CI0101 & 09:06:02  & CEQ &  &  &  & OK\\
+S & CIR1IND0910 & 09:11:46  & CEQ & E & CIR1 & BEH2 & NOK\\
+T & CIR1IND0910 & 09:11:46  & CEQ & E & CIR1 & BEH2 & NOK\\
+I & BIND22DD & 09:15:10  & CEQ & E & B & BEH2 & NOK\\
+D & BCH45EBS & 09:18:43  & CEQ & E & B & BEH2 & OK\\
+I & EBSININD & 09:19:35  & CEQ & E & EBS & EBS & OK\\
+D & EBSDN10 & 09:19:45  & CEQ & E & EBS & EBS & OK\\
+T & EBSOUTIND & 09:22:13  & CEQ & E & EAS & BEH2 & NOK\\
+I & EBSININD & 09:22:34  & CEQ & E & EBS & EBS & OK\\
+D & EBSUP10 & 09:22:44  & CEQ & E & EBS & EBS & OK\\
+T & EBSOUTIND & 09:30:15  & CEQ & N & EAS & B & OK\\
+I & BIND5ELNS & 09:31:55  & CEQ & N & B & B & OK\\
+D & BCH21 & 09:35:34  & CEQ & N & B & B & OK\\
+\bottomrule
+\end{longtable}
+\subsection*{ABISv1 bagtag: 4003000000 / Outbound flight: TU100 / Inbound flight: IB100}
+\paragraph{}
+\begin{longtable}{cccccccc}    \toprule
+\rowcolor{white!50}
+\textbf{Ev.Type} & \textbf{Ev.Location} & \textbf{Ev.Time} & \textbf{Outbound} & \textbf{Bag Stat.} & \textbf{BIE} & \textbf{toBIE} & \textbf{Matches ABISv2} \\\midrule
+P & CI0101 & 07:41:24  & CEQ &  &  &  & OK\\
+B & CRWAA & 07:41:24  & CEQ &  &  &  & OK\\
+S & CIR1IND0910 & 07:47:09  & CEQ & E & CIR1 & BEH1 & NOK\\
+T & CIR1IND0910 & 07:47:09  & CEQ & E & CIR1 & BEH1 & NOK\\
+S & CIR1IND0910 & 07:47:09  & CEQ & E & CIR1 & BEH1 & NOK\\
+I & BIND22DD & 07:50:33  & CEQ & E & B & BEH1 & NOK\\
+D & BCH45EBS & 07:54:06  & CEQ & E & B &  & OK\\
+I & EBSININD & 07:54:56  & CEQ & E & EBS & EBS & OK\\
+D & EBSDN10 & 07:55:06  & CEQ & E & EBS &  & OK\\
+T & EBSOUTIND & 07:57:33  & CEQ & E & EAS & BEH1 & NOK\\
+I & EBSININD & 07:57:55  & CEQ & E & EBS & EBS & OK\\
+D & EBSUP10 & 07:58:05  & CEQ & E & EBS &  & OK\\
+T & EBSOUTIND & 08:05:35  & CEQ & N & EAS & B & OK\\
+I & BIND5ELNS & 08:07:16  & CEQ & N & B & B & OK\\
+D & BCH21 & 08:10:55  & CEQ & N & B &  & OK\\
+\bottomrule
+\end{longtable}
+\pagebreak
+\section*{Simulation bag 2}
+\subsection*{ABISv2 bagtag: 4002000001 Outbound flight: TU100}
+\paragraph{}
+\begin{longtable}{cccccccc}    \toprule
+\rowcolor{white!50}
+\textbf{Ev.Type} & \textbf{Ev.Location} & \textbf{Ev.Time} & \textbf{Outbound} & \textbf{Bag Stat.} & \textbf{BIE} & \textbf{toBIE} & \textbf{Matches ABISv1} \\\midrule
+B & CRWAA & 09:06:02  & CEQ &  &  &  & OK\\
+P & CI0101 & 09:06:02  & CEQ &  &  &  & OK\\
+S & CIR3IND0506 & 09:12:14  & CEQ & E & CIR3 & BEH2 & NOK\\
+T & CIR3IND0506 & 09:12:14  & CEQ & E & CIR3 & BEH2 & NOK\\
+I & BIND11DD & 09:15:03  & CEQ & E & B & BEH2 & NOK\\
+D & BCH45EBS & 09:18:38  & CEQ & E & B & BEH2 & OK\\
+I & EBSININD & 09:19:41  & CEQ & E & EBS & EBS & OK\\
+D & EBSDN10 & 09:19:51  & CEQ & E & EBS & EBS & OK\\
+T & EBSOUTIND & 09:22:13  & CEQ & E & EAS & BEH2 & NOK\\
+I & EBSININD & 09:22:34  & CEQ & E & EBS & EBS & OK\\
+D & EBSUP10 & 09:22:44  & CEQ & E & EBS & EBS & NOK\\
+T & EBSOUTIND & 09:30:15  & CEQ & N & EAS & B & OK\\
+I & BIND5ELNS & 09:31:55  & CEQ & N & B & B & OK\\
+D & BCH21 & 09:35:34  & CEQ & N & B & B & OK\\
+\bottomrule
+\end{longtable}
+\subsection*{ABISv1 bagtag: 4003000001 / Outbound flight: TU100 / Inbound flight: IB100}
+\paragraph{}
+\begin{longtable}{cccccccc}    \toprule
+\rowcolor{white!50}
+\textbf{Ev.Type} & \textbf{Ev.Location} & \textbf{Ev.Time} & \textbf{Outbound} & \textbf{Bag Stat.} & \textbf{BIE} & \textbf{toBIE} & \textbf{Matches ABISv2} \\\midrule
+P & CI0101 & 07:41:24  & CEQ &  &  &  & OK\\
+B & CRWAA & 07:41:24  & CEQ &  &  &  & OK\\
+S & CIR3IND0506 & 07:47:37  & CEQ & E & CIR3 & BEH1 & NOK\\
+T & CIR3IND0506 & 07:47:37  & CEQ & E & CIR3 & BEH1 & NOK\\
+S & CIR3IND0506 & 07:47:37  & CEQ & E & CIR3 & BEH1 & NOK\\
+I & BIND11DD & 07:50:23  & CEQ & E & B & BEH1 & NOK\\
+D & BCH45EBS & 07:53:58  & CEQ & E & B &  & OK\\
+I & EBSININD & 07:55:02  & CEQ & E & EBS & EBS & OK\\
+D & EBSDN10 & 07:55:12  & CEQ & E & EBS &  & OK\\
+T & EBSOUTIND & 08:01:03  & CEQ & E & EAS & BEH1 & NOK\\
+I & EBSININD & 08:01:23  & CEQ & E & EBS & EBS & OK\\
+D & EBSDN09 & 08:01:33  & CEQ & E & EBS &  & NOK\\
+T & EBSOUTIND & 08:07:18  & CEQ & N & EAS & B & OK\\
+I & BIND5ELNS & 08:08:58  & CEQ & N & B & B & OK\\
+D & BCH21 & 08:12:37  & CEQ & N & B &  & OK\\
+\bottomrule
+\end{longtable}
+\pagebreak
+\section*{Simulation bag 3}
+\subsection*{ABISv2 bagtag: 4002000002 Outbound flight: TU100}
+\paragraph{}
+\begin{longtable}{cccccccc}    \toprule
+\rowcolor{white!50}
+\textbf{Ev.Type} & \textbf{Ev.Location} & \textbf{Ev.Time} & \textbf{Outbound} & \textbf{Bag Stat.} & \textbf{BIE} & \textbf{toBIE} & \textbf{Matches ABISv1} \\\midrule
+B & CRWAA & 09:06:02  & CEQ &  &  &  & OK\\
+P & CI0101 & 09:06:02  & CEQ &  &  &  & OK\\
+S & CIR5IND01 & 09:12:07  & CEQ & E & CIR5 & BEH2 & NOK\\
+T & CIR5IND01 & 09:12:07  & CEQ & E & CIR5 & BEH2 & NOK\\
+I & AIND14DD & 09:16:42  & CEQ & E & A & BEH2 & NOK\\
+D & ACH45EBS & 09:20:17  & CEQ & E & A & BEH2 & OK\\
+I & EBSININD & 09:21:20  & CEQ & E & EBS & EBS & OK\\
+D & EBSDN10 & 09:21:30  & CEQ & E & EBS & EBS & NOK\\
+T & EBSOUTIND & 09:27:21  & CEQ & E & EAS & BEH2 & NOK\\
+I & EBSININD & 09:27:42  & CEQ & E & EBS & EBS & OK\\
+D & EBSDN09 & 09:27:52  & CEQ & E & EBS & EBS & NOK\\
+T & EBSOUTIND & 09:33:37  & CEQ & N & EAS & B & OK\\
+I & BIND5ELNS & 09:35:17  & CEQ & N & B & B & OK\\
+D & BCH21 & 09:38:56  & CEQ & N & B & B & OK\\
+\bottomrule
+\end{longtable}
+\subsection*{ABISv1 bagtag: 4003000002 / Outbound flight: TU100 / Inbound flight: IB100}
+\paragraph{}
+\begin{longtable}{cccccccc}    \toprule
+\rowcolor{white!50}
+\textbf{Ev.Type} & \textbf{Ev.Location} & \textbf{Ev.Time} & \textbf{Outbound} & \textbf{Bag Stat.} & \textbf{BIE} & \textbf{toBIE} & \textbf{Matches ABISv2} \\\midrule
+P & CI0101 & 07:41:24  & CEQ &  &  &  & OK\\
+B & CRWAA & 07:41:24  & CEQ &  &  &  & OK\\
+S & CIR5IND01 & 07:47:30  & CEQ & E & CIR5 & BEH1 & NOK\\
+T & CIR5IND01 & 07:47:30  & CEQ & E & CIR5 & BEH1 & NOK\\
+S & CIR5IND01 & 07:47:30  & CEQ & E & CIR5 & BEH1 & NOK\\
+I & AIND14DD & 07:52:03  & CEQ & E & A & BEH1 & NOK\\
+D & ACH45EBS & 07:55:38  & CEQ & E & A &  & OK\\
+I & EBSININD & 07:56:40  & CEQ & E & EBS & EBS & OK\\
+D & EBSUP10 & 07:56:50  & CEQ & E & EBS &  & NOK\\
+T & EBSOUTIND & 08:04:22  & CEQ & N & EAS & B & OK\\
+I & BIND5ELNS & 08:06:03  & CEQ & N & B & B & OK\\
+D & BCH21 & 08:09:42  & CEQ & N & B &  & OK\\
+\bottomrule
+\end{longtable}
+\pagebreak
+\section*{Simulation bag 4}
+\subsection*{ABISv2 bagtag: 4002000003 Outbound flight: TU100}
+\paragraph{}
+\begin{longtable}{cccccccc}    \toprule
+\rowcolor{white!50}
+\textbf{Ev.Type} & \textbf{Ev.Location} & \textbf{Ev.Time} & \textbf{Outbound} & \textbf{Bag Stat.} & \textbf{BIE} & \textbf{toBIE} & \textbf{Matches ABISv1} \\\midrule
+B & CRWAA & 09:06:02  & CEQ &  &  &  & OK\\
+P & CI0101 & 09:06:02  & CEQ &  &  &  & OK\\
+S & CIR11IND11 & 09:11:47  & CEQ & E & CIR11 & BEH2 & NOK\\
+T & CIR11IND11 & 09:11:47  & CEQ & E & CIR11 & BEH2 & NOK\\
+P & CIR11CH01SRTA & 09:12:16  & CEQ & E & CR11D &  & OK\\
+I & AIND14DD & 09:12:29  & CEQ & E & A & BEH2 & NOK\\
+D & ACH45EBS & 09:16:04  & CEQ & E & A & BEH2 & OK\\
+I & EBSININD & 09:17:10  & CEQ & E & EBS & EBS & OK\\
+D & EBSDN10 & 09:17:20  & CEQ & E & EBS & EBS & OK\\
+T & EBSOUTIND & 09:22:11  & CEQ & E & EAS & BEH2 & NOK\\
+I & EBSININD & 09:22:34  & CEQ & E & EBS & EBS & OK\\
+D & EBSUP10 & 09:22:44  & CEQ & E & EBS & EBS & OK\\
+T & EBSOUTIND & 09:30:10  & CEQ & N & EAS & B & OK\\
+I & BIND5ELNS & 09:31:51  & CEQ & N & B & B & OK\\
+D & BCH21 & 09:35:30  & CEQ & N & B & B & OK\\
+\bottomrule
+\end{longtable}
+\subsection*{ABISv1 bagtag: 4003000003 / Outbound flight: TU100 / Inbound flight: IB100}
+\paragraph{}
+\begin{longtable}{cccccccc}    \toprule
+\rowcolor{white!50}
+\textbf{Ev.Type} & \textbf{Ev.Location} & \textbf{Ev.Time} & \textbf{Outbound} & \textbf{Bag Stat.} & \textbf{BIE} & \textbf{toBIE} & \textbf{Matches ABISv2} \\\midrule
+P & CI0101 & 07:41:24  & CEQ &  &  &  & OK\\
+B & CRWAA & 07:41:24  & CEQ &  &  &  & OK\\
+S & CIR11IND11 & 07:47:10  & CEQ & E & CIR11 & BEH1 & NOK\\
+T & CIR11IND11 & 07:47:10  & CEQ & E & CIR11 & BEH1 & NOK\\
+S & CIR11IND11 & 07:47:10  & CEQ & E & CIR11 & BEH1 & NOK\\
+P & CIR11CH01SRTA & 07:47:39  & CEQ & E & CR11D &  & OK\\
+I & AIND14DD & 07:47:53  & CEQ & E & A & BEH1 & NOK\\
+D & ACH45EBS & 07:51:28  & CEQ & E & A &  & OK\\
+I & EBSININD & 07:52:37  & CEQ & E & EBS & EBS & OK\\
+D & EBSDN10 & 07:52:47  & CEQ & E & EBS &  & OK\\
+T & EBSOUTIND & 07:57:26  & CEQ & E & EAS & BEH1 & NOK\\
+I & EBSININD & 07:57:46  & CEQ & E & EBS & EBS & OK\\
+D & EBSUP10 & 07:57:56  & CEQ & E & EBS &  & OK\\
+T & EBSOUTIND & 08:05:27  & CEQ & N & EAS & B & OK\\
+I & BIND5ELNS & 08:07:07  & CEQ & N & B & B & OK\\
+D & BCH21 & 08:10:46  & CEQ & N & B &  & OK\\
+\bottomrule
+\end{longtable}
+\pagebreak
+\section*{Simulation bag 5}
+\subsection*{ABISv2 bagtag: 4002000004 Outbound flight: TU100}
+\paragraph{}
+\begin{longtable}{cccccccc}    \toprule
+\rowcolor{white!50}
+\textbf{Ev.Type} & \textbf{Ev.Location} & \textbf{Ev.Time} & \textbf{Outbound} & \textbf{Bag Stat.} & \textbf{BIE} & \textbf{toBIE} & \textbf{Matches ABISv1} \\\midrule
+B & CRWAA & 09:06:02  & CEQ &  &  &  & OK\\
+P & CI0101 & 09:06:02  & CEQ &  &  &  & OK\\
+P & CIR14 & 09:11:54  & CEQ & E & CIR14 &  & OK\\
+S & CIR14 & 09:11:54  & CEQ & E & CIR14 &  & OK\\
+P & CIR14CH05CARE & 09:12:27  & CEQ & E & CIR14 &  & OK\\
+\bottomrule
+\end{longtable}
+\subsection*{ABISv1 bagtag: 4003000004 / Outbound flight: TU100 / Inbound flight: IB100}
+\paragraph{}
+\begin{longtable}{cccccccc}    \toprule
+\rowcolor{white!50}
+\textbf{Ev.Type} & \textbf{Ev.Location} & \textbf{Ev.Time} & \textbf{Outbound} & \textbf{Bag Stat.} & \textbf{BIE} & \textbf{toBIE} & \textbf{Matches ABISv2} \\\midrule
+P & CI0101 & 07:41:24  & CEQ &  &  &  & OK\\
+B & CRWAA & 07:41:24  & CEQ &  &  &  & OK\\
+P & CIR14 & 07:47:17  & CEQ & E & CIR14 &  & OK\\
+S & CIR14 & 07:47:18  & CEQ & E & CIR14 &  & OK\\
+S & CIR14 & 07:47:18  & CEQ & E & CIR14 &  & OK\\
+P & CIR14CH05CARE & 07:47:51  & CEQ & E & CIR14 &  & OK\\
+\bottomrule
+\end{longtable}
+\pagebreak
+\section*{Simulation bag 6}
+\subsection*{ABISv2 bagtag: 4002000005 Outbound flight: TU100}
+\paragraph{}
+\begin{longtable}{cccccccc}    \toprule
+\rowcolor{white!50}
+\textbf{Ev.Type} & \textbf{Ev.Location} & \textbf{Ev.Time} & \textbf{Outbound} & \textbf{Bag Stat.} & \textbf{BIE} & \textbf{toBIE} & \textbf{Matches ABISv1} \\\midrule
+B & CRWAA & 09:06:02  & CEQ &  &  &  & OK\\
+P & CI0101 & 09:06:02  & CEQ &  &  &  & OK\\
+P & PBTRF2 & 09:11:22  & CEQ & E & INB2 &  & OK\\
+I & PS1IND2TRF & 09:11:24  & CEQ & E & PS1 & BEH2 & NOK\\
+P & PS1POS2TRF & 09:11:25  & CEQ & E & PS1 &  & OK\\
+D & PS1CH05EBS & 09:11:26  & CEQ & E & PS1 & BEH2 & OK\\
+I & EBSININD & 09:14:51  & CEQ & E & EBS & EBS & OK\\
+D & EBSDN10 & 09:15:01  & CEQ & E & EBS & EBS & OK\\
+T & EBSOUTIND & 09:20:51  & CEQ & E & EAS & BEH2 & NOK\\
+I & EBSININD & 09:21:12  & CEQ & E & EBS & EBS & OK\\
+D & EBSDN10 & 09:21:22  & CEQ & E & EBS & EBS & OK\\
+T & EBSOUTIND & 09:27:13  & CEQ & E & EAS & BEH2 & NOK\\
+I & EBSININD & 09:27:34  & CEQ & E & EBS & EBS & OK\\
+D & EBSUP10 & 09:27:44  & CEQ & E & EBS & EBS & OK\\
+T & EBSOUTIND & 09:35:14  & CEQ & N & EAS & B & OK\\
+I & BIND5ELNS & 09:36:55  & CEQ & N & B & B & OK\\
+S & BIND5ELNS & 09:36:55  & CEQ & N & B & B & OK\\
+D & BCH21 & 09:40:34  & CEQ & N & B & B & OK\\
+\bottomrule
+\end{longtable}
+\subsection*{ABISv1 bagtag: 4003000005 / Outbound flight: TU100 / Inbound flight: IB100}
+\paragraph{}
+\begin{longtable}{cccccccc}    \toprule
+\rowcolor{white!50}
+\textbf{Ev.Type} & \textbf{Ev.Location} & \textbf{Ev.Time} & \textbf{Outbound} & \textbf{Bag Stat.} & \textbf{BIE} & \textbf{toBIE} & \textbf{Matches ABISv2} \\\midrule
+P & CI0101 & 07:41:24  & CEQ &  &  &  & OK\\
+B & CRWAA & 07:41:24  & CEQ &  &  &  & OK\\
+P & PBTRF2 & 07:46:46  & CEQ & E & INB2 &  & OK\\
+I & PS1IND2TRF & 07:46:51  & CEQ & E & PS1 & BEH1 & NOK\\
+P & PS1POS2TRF & 07:46:52  & CEQ & E & PS1 &  & OK\\
+D & PS1CH05EBS & 07:46:53  & CEQ & E & PS1 &  & OK\\
+I & EBSININD & 07:49:58  & CEQ & E & EBS & EBS & OK\\
+D & EBSDN10 & 07:50:08  & CEQ & E & EBS &  & OK\\
+T & EBSOUTIND & 07:56:00  & CEQ & E & EAS & BEH1 & NOK\\
+I & EBSININD & 07:56:20  & CEQ & E & EBS & EBS & OK\\
+D & EBSDN10 & 07:56:30  & CEQ & E & EBS &  & OK\\
+T & EBSOUTIND & 08:02:20  & CEQ & E & EAS & BEH1 & NOK\\
+I & EBSININD & 08:02:41  & CEQ & E & EBS & EBS & OK\\
+D & EBSUP10 & 08:02:51  & CEQ & E & EBS &  & OK\\
+T & EBSOUTIND & 08:10:22  & CEQ & N & EAS & B & OK\\
+S & BIND5ELNS & 08:12:02  & CEQ & N & B & B & OK\\
+I & BIND5ELNS & 08:12:02  & CEQ & N & B & B & OK\\
+S & BIND5ELNS & 08:12:02  & CEQ & N & B & B & OK\\
+D & BCH21 & 08:15:41  & CEQ & N & B &  & OK\\
+\bottomrule
+\end{longtable}
+\pagebreak
+\section*{Simulation bag 7}
+\subsection*{ABISv2 bagtag: 4002000006 Outbound flight: TU100}
+\paragraph{}
+\begin{longtable}{cccccccc}    \toprule
+\rowcolor{white!50}
+\textbf{Ev.Type} & \textbf{Ev.Location} & \textbf{Ev.Time} & \textbf{Outbound} & \textbf{Bag Stat.} & \textbf{BIE} & \textbf{toBIE} & \textbf{Matches ABISv1} \\\midrule
+B & CRWAA & 09:06:02  & CEQ &  &  &  & OK\\
+P & CI0101 & 09:06:02  & CEQ &  &  &  & OK\\
+I & AIND5ELNS & 09:11:32  & CEQ & E & A & BEH2 & NOK\\
+S & AIND5ELNS & 09:11:32  & CEQ & E & A & BEH2 & NOK\\
+D & ACH45EBS & 09:13:37  & CEQ & E & A & BEH2 & OK\\
+I & EBSININD & 09:14:44  & CEQ & E & EBS & EBS & OK\\
+D & EBSDN10 & 09:14:54  & CEQ & E & EBS & EBS & OK\\
+T & EBSOUTIND & 09:20:44  & CEQ & E & EAS & BEH2 & NOK\\
+I & EBSININD & 09:21:04  & CEQ & E & EBS & EBS & OK\\
+D & EBSDN10 & 09:21:15  & CEQ & E & EBS & EBS & OK\\
+T & EBSOUTIND & 09:27:05  & CEQ & E & EAS & BEH2 & NOK\\
+I & EBSININD & 09:27:26  & CEQ & E & EBS & EBS & OK\\
+D & EBSUP10 & 09:27:36  & CEQ & E & EBS & EBS & OK\\
+T & EBSOUTIND & 09:35:07  & CEQ & N & EAS & B & OK\\
+I & BIND5ELNS & 09:36:48  & CEQ & N & B & B & OK\\
+D & BCH21 & 09:40:27  & CEQ & N & B & B & OK\\
+\bottomrule
+\end{longtable}
+\subsection*{ABISv1 bagtag: 4003000006 / Outbound flight: TU100 / Inbound flight: IB100}
+\paragraph{}
+\begin{longtable}{cccccccc}    \toprule
+\rowcolor{white!50}
+\textbf{Ev.Type} & \textbf{Ev.Location} & \textbf{Ev.Time} & \textbf{Outbound} & \textbf{Bag Stat.} & \textbf{BIE} & \textbf{toBIE} & \textbf{Matches ABISv2} \\\midrule
+P & CI0101 & 07:41:24  & CEQ &  &  &  & OK\\
+B & CRWAA & 07:41:24  & CEQ &  &  &  & OK\\
+S & AIND5ELNS & 07:46:54  & CEQ & E & A & BEH1 & NOK\\
+I & AIND5ELNS & 07:46:54  & CEQ & E & A & BEH1 & NOK\\
+S & AIND5ELNS & 07:46:54  & CEQ & E & A & BEH1 & NOK\\
+D & ACH45EBS & 07:48:59  & CEQ & E & A &  & OK\\
+I & EBSININD & 07:49:49  & CEQ & E & EBS & EBS & OK\\
+D & EBSDN10 & 07:49:59  & CEQ & E & EBS &  & OK\\
+T & EBSOUTIND & 07:55:50  & CEQ & E & EAS & BEH1 & NOK\\
+I & EBSININD & 07:56:10  & CEQ & E & EBS & EBS & OK\\
+D & EBSDN10 & 07:56:20  & CEQ & E & EBS &  & OK\\
+T & EBSOUTIND & 08:02:11  & CEQ & E & EAS & BEH1 & NOK\\
+I & EBSININD & 08:02:31  & CEQ & E & EBS & EBS & OK\\
+D & EBSUP10 & 08:02:41  & CEQ & E & EBS &  & OK\\
+T & EBSOUTIND & 08:10:12  & CEQ & N & EAS & B & OK\\
+I & BIND5ELNS & 08:11:53  & CEQ & N & B & B & OK\\
+D & BCH21 & 08:15:32  & CEQ & N & B &  & OK\\
+\bottomrule
+\end{longtable}
+\pagebreak
+\section*{Simulation bag 8}
+\subsection*{ABISv2 bagtag: 4002000007 Outbound flight: TU100}
+\paragraph{}
+\begin{longtable}{cccccccc}    \toprule
+\rowcolor{white!50}
+\textbf{Ev.Type} & \textbf{Ev.Location} & \textbf{Ev.Time} & \textbf{Outbound} & \textbf{Bag Stat.} & \textbf{BIE} & \textbf{toBIE} & \textbf{Matches ABISv1} \\\midrule
+B & CRWAA & 09:06:02  & CEQ &  &  &  & OK\\
+P & CI0101 & 09:06:02  & CEQ &  &  &  & OK\\
+P & PBTRF5 & 09:11:26  & CEQ & E & INB5 &  & OK\\
+P & TPBIND08 & 09:13:55  & CEQ & E & TPB &  & OK\\
+S & TPBIND08 & 09:13:55  & CEQ & E & TPB &  & OK\\
+T & TPIND & 09:15:30  & CEQ & E & TA & BEH2 & NOK\\
+I & BIND22DD & 09:17:09  & CEQ & E & B & BEH2 & NOK\\
+D & BCH45EBS & 09:20:42  & CEQ & E & B & BEH2 & OK\\
+I & EBSININD & 09:21:29  & CEQ & E & EBS & EBS & OK\\
+D & EBSUP10 & 09:21:39  & CEQ & E & EBS & EBS & OK\\
+T & EBSOUTIND & 09:29:10  & CEQ & N & EAS & B & OK\\
+I & BIND5ELNS & 09:30:50  & CEQ & N & B & B & OK\\
+D & BCH21 & 09:34:30  & CEQ & N & B & B & OK\\
+\bottomrule
+\end{longtable}
+\subsection*{ABISv1 bagtag: 4003000007 / Outbound flight: TU100 / Inbound flight: IB100}
+\paragraph{}
+\begin{longtable}{cccccccc}    \toprule
+\rowcolor{white!50}
+\textbf{Ev.Type} & \textbf{Ev.Location} & \textbf{Ev.Time} & \textbf{Outbound} & \textbf{Bag Stat.} & \textbf{BIE} & \textbf{toBIE} & \textbf{Matches ABISv2} \\\midrule
+P & CI0101 & 07:41:24  & CEQ &  &  &  & OK\\
+B & CRWAA & 07:41:24  & CEQ &  &  &  & OK\\
+P & PBTRF5 & 07:46:47  & CEQ & E & INB5 &  & OK\\
+S & TPBIND08 & 07:49:10  & CEQ & E & TPB &  & OK\\
+P & TPBIND08 & 07:49:10  & CEQ & E & TPB &  & OK\\
+S & TPBIND08 & 07:49:10  & CEQ & E & TPB &  & OK\\
+T & TPIND & 07:50:37  & CEQ & E & TA & BEH1 & NOK\\
+I & BIND22DD & 07:52:09  & CEQ & E & B & BEH1 & NOK\\
+D & BCH45EBS & 07:55:42  & CEQ & E & B &  & OK\\
+I & EBSININD & 07:56:29  & CEQ & E & EBS & EBS & OK\\
+D & EBSDN10 & 07:56:39  & CEQ & E & EBS &  & NOK\\
+T & EBSOUTIND & 08:02:29  & CEQ & E & EAS & BEH1 & NOK\\
+I & EBSININD & 08:02:50  & CEQ & E & EBS & EBS & OK\\
+D & EBSUP10 & 08:03:00  & CEQ & E & EBS &  & OK\\
+T & EBSOUTIND & 08:10:31  & CEQ & N & EAS & B & OK\\
+I & BIND5ELNS & 08:12:11  & CEQ & N & B & B & OK\\
+D & BCH21 & 08:15:50  & CEQ & N & B &  & OK\\
+\bottomrule
+\end{longtable}
+\pagebreak
+\section*{Simulation bag 9}
+\subsection*{ABISv2 bagtag: 4002000008 Outbound flight: TU100}
+\paragraph{}
+\begin{longtable}{cccccccc}    \toprule
+\rowcolor{white!50}
+\textbf{Ev.Type} & \textbf{Ev.Location} & \textbf{Ev.Time} & \textbf{Outbound} & \textbf{Bag Stat.} & \textbf{BIE} & \textbf{toBIE} & \textbf{Matches ABISv1} \\\midrule
+B & CRWAA & 09:06:02  & CEQ &  &  &  & OK\\
+P & CI0101 & 09:06:02  & CEQ &  &  &  & OK\\
+P & PBTRF8 & 09:11:34  & CEQ & E & INB8 &  & OK\\
+P & TPBIND08 & 09:13:23  & CEQ & E & TPB &  & OK\\
+S & TPBIND08 & 09:13:23  & CEQ & E & TPB &  & OK\\
+T & TPIND & 09:14:58  & CEQ & E & TA & BEH2 & NOK\\
+I & BIND22DD & 09:16:32  & CEQ & E & B & BEH2 & NOK\\
+D & BCH45EBS & 09:20:05  & CEQ & E & B & BEH2 & NOK\\
+I & EBSININD & 09:20:51  & CEQ & E & EBS & EBS & OK\\
+D & EBSDN10 & 09:21:01  & CEQ & E & EBS & EBS & OK\\
+T & EBSOUTIND & 09:26:52  & CEQ & E & EAS & BEH2 & NOK\\
+I & EBSININD & 09:27:13  & CEQ & E & EBS & EBS & OK\\
+D & EBSUP10 & 09:27:23  & CEQ & E & EBS & EBS & OK\\
+T & EBSOUTIND & 09:34:53  & CEQ & N & EAS & B & OK\\
+I & BIND5ELNS & 09:36:35  & CEQ & N & B & B & OK\\
+D & BCH21 & 09:40:14  & CEQ & N & B & B & OK\\
+\bottomrule
+\end{longtable}
+\subsection*{ABISv1 bagtag: 4003000008 / Outbound flight: TU100 / Inbound flight: IB100}
+\paragraph{}
+\begin{longtable}{cccccccc}    \toprule
+\rowcolor{white!50}
+\textbf{Ev.Type} & \textbf{Ev.Location} & \textbf{Ev.Time} & \textbf{Outbound} & \textbf{Bag Stat.} & \textbf{BIE} & \textbf{toBIE} & \textbf{Matches ABISv2} \\\midrule
+P & CI0101 & 07:41:24  & CEQ &  &  &  & OK\\
+B & CRWAA & 07:41:24  & CEQ &  &  &  & OK\\
+P & PBTRF8 & 07:46:56  & CEQ & E & INB8 &  & OK\\
+S & TPBIND08 & 07:48:43  & CEQ & E & TPB &  & OK\\
+P & TPBIND08 & 07:48:43  & CEQ & E & TPB &  & OK\\
+S & TPBIND08 & 07:48:43  & CEQ & E & TPB &  & OK\\
+T & TPIND & 07:50:15  & CEQ & E & TA & BEH1 & NOK\\
+I & AIND23DD & 07:52:03  & CEQ & E & A & BEH1 & NOK\\
+D & ACH45EBS & 07:55:36  & CEQ & E & A &  & NOK\\
+I & EBSININD & 07:56:22  & CEQ & E & EBS & EBS & OK\\
+D & EBSDN10 & 07:56:32  & CEQ & E & EBS &  & OK\\
+T & EBSOUTIND & 08:02:23  & CEQ & E & EAS & BEH1 & NOK\\
+I & EBSININD & 08:02:43  & CEQ & E & EBS & EBS & OK\\
+D & EBSUP10 & 08:02:53  & CEQ & E & EBS &  & OK\\
+T & EBSOUTIND & 08:10:24  & CEQ & N & EAS & B & OK\\
+I & BIND5ELNS & 08:12:05  & CEQ & N & B & B & OK\\
+D & BCH21 & 08:15:44  & CEQ & N & B &  & OK\\
+\bottomrule
+\end{longtable}
+\pagebreak
+\section*{Simulation bag 10}
+\subsection*{ABISv2 bagtag: 4002000009 Outbound flight: TU100}
+\paragraph{}
+\begin{longtable}{cccccccc}    \toprule
+\rowcolor{white!50}
+\textbf{Ev.Type} & \textbf{Ev.Location} & \textbf{Ev.Time} & \textbf{Outbound} & \textbf{Bag Stat.} & \textbf{BIE} & \textbf{toBIE} & \textbf{Matches ABISv1} \\\midrule
+B & CRWAA & 09:06:02  & CEQ &  &  &  & OK\\
+P & CI0101 & 09:06:02  & CEQ &  &  &  & OK\\
+P & PBTRM2 & 09:11:32  & CEQ & W & INB2 &  & OK\\
+\bottomrule
+\end{longtable}
+\subsection*{ABISv1 bagtag: 4003000009 / Outbound flight: TU100 / Inbound flight: IB100}
+\paragraph{}
+\begin{longtable}{cccccccc}    \toprule
+\rowcolor{white!50}
+\textbf{Ev.Type} & \textbf{Ev.Location} & \textbf{Ev.Time} & \textbf{Outbound} & \textbf{Bag Stat.} & \textbf{BIE} & \textbf{toBIE} & \textbf{Matches ABISv2} \\\midrule
+P & CI0101 & 07:41:24  & CEQ &  &  &  & OK\\
+B & CRWAA & 07:41:24  & CEQ &  &  &  & OK\\
+P & PBTRM2 & 07:46:54  & CEQ & W & INB2 &  & OK\\
+\bottomrule
+\end{longtable}
+\pagebreak
+\section*{Simulation bag 11}
+\subsection*{ABISv2 bagtag: 4002000010 Outbound flight: TU100}
+\paragraph{}
+\begin{longtable}{cccccccc}    \toprule
+\rowcolor{white!50}
+\textbf{Ev.Type} & \textbf{Ev.Location} & \textbf{Ev.Time} & \textbf{Outbound} & \textbf{Bag Stat.} & \textbf{BIE} & \textbf{toBIE} & \textbf{Matches ABISv1} \\\midrule
+B & CRWAA & 09:06:02  & CEQ &  &  &  & OK\\
+P & CI0101 & 09:06:02  & CEQ &  &  &  & OK\\
+P & PBTRM4 & 09:11:32  & CEQ & W & INB4 &  & OK\\
+\bottomrule
+\end{longtable}
+\subsection*{ABISv1 bagtag: 4003000010 / Outbound flight: TU100 / Inbound flight: IB100}
+\paragraph{}
+\begin{longtable}{cccccccc}    \toprule
+\rowcolor{white!50}
+\textbf{Ev.Type} & \textbf{Ev.Location} & \textbf{Ev.Time} & \textbf{Outbound} & \textbf{Bag Stat.} & \textbf{BIE} & \textbf{toBIE} & \textbf{Matches ABISv2} \\\midrule
+P & CI0101 & 07:41:24  & CEQ &  &  &  & OK\\
+B & CRWAA & 07:41:24  & CEQ &  &  &  & OK\\
+P & PBTRM4 & 07:46:54  & CEQ & W & INB4 &  & OK\\
+\bottomrule
+\end{longtable}
+\pagebreak
+\section*{Simulation bag 12}
+\subsection*{ABISv2 bagtag: 4002000011 Outbound flight: TU100}
+\paragraph{}
+\begin{longtable}{cccccccc}    \toprule
+\rowcolor{white!50}
+\textbf{Ev.Type} & \textbf{Ev.Location} & \textbf{Ev.Time} & \textbf{Outbound} & \textbf{Bag Stat.} & \textbf{BIE} & \textbf{toBIE} & \textbf{Matches ABISv1} \\\midrule
+B & CRWAA & 09:06:02  & CEQ &  &  &  & OK\\
+P & CI0101 & 09:06:02  & CEQ &  &  &  & OK\\
+P & PBTRM7 & 09:11:32  & CEQ & W & INB7 &  & OK\\
+\bottomrule
+\end{longtable}
+\subsection*{ABISv1 bagtag: 4003000011 / Outbound flight: TU100 / Inbound flight: IB100}
+\paragraph{}
+\begin{longtable}{cccccccc}    \toprule
+\rowcolor{white!50}
+\textbf{Ev.Type} & \textbf{Ev.Location} & \textbf{Ev.Time} & \textbf{Outbound} & \textbf{Bag Stat.} & \textbf{BIE} & \textbf{toBIE} & \textbf{Matches ABISv2} \\\midrule
+P & CI0101 & 07:41:24  & CEQ &  &  &  & OK\\
+B & CRWAA & 07:41:24  & CEQ &  &  &  & OK\\
+P & PBTRM7 & 07:46:54  & CEQ & W & INB7 &  & OK\\
+\bottomrule
+\end{longtable}
+\pagebreak
+\section*{Simulation bag 13}
+\subsection*{ABISv2 bagtag: 4002000012 Outbound flight: TU100}
+\paragraph{}
+\begin{longtable}{cccccccc}    \toprule
+\rowcolor{white!50}
+\textbf{Ev.Type} & \textbf{Ev.Location} & \textbf{Ev.Time} & \textbf{Outbound} & \textbf{Bag Stat.} & \textbf{BIE} & \textbf{toBIE} & \textbf{Matches ABISv1} \\\midrule
+B & CRWAA & 09:06:02  & CEQ &  &  &  & OK\\
+P & CI0101 & 09:06:02  & CEQ &  &  &  & OK\\
+I & EBSININD & 09:11:28  & CEQ & E & EBS & EBS & OK\\
+D & EBSDN10 & 09:11:38  & CEQ & E & EBS & EBS & OK\\
+T & EBSOUTIND & 09:17:30  & CEQ & E & EAS & BEH2 & NOK\\
+I & EBSININD & 09:17:50  & CEQ & E & EBS & EBS & OK\\
+D & EBSDN10 & 09:18:00  & CEQ & E & EBS & EBS & OK\\
+T & EBSOUTIND & 09:22:13  & CEQ & E & EAS & BEH2 & NOK\\
+I & EBSININD & 09:22:34  & CEQ & E & EBS & EBS & OK\\
+D & EBSUP10 & 09:22:44  & CEQ & E & EBS & EBS & OK\\
+T & EBSOUTIND & 09:30:10  & CEQ & N & EAS & B & OK\\
+I & BIND5ELNS & 09:31:51  & CEQ & N & B & B & OK\\
+S & BIND5ELNS & 09:31:51  & CEQ & N & B & B & OK\\
+D & BCH21 & 09:35:30  & CEQ & N & B & B & OK\\
+\bottomrule
+\end{longtable}
+\subsection*{ABISv1 bagtag: 4003000012 / Outbound flight: TU100 / Inbound flight: IB100}
+\paragraph{}
+\begin{longtable}{cccccccc}    \toprule
+\rowcolor{white!50}
+\textbf{Ev.Type} & \textbf{Ev.Location} & \textbf{Ev.Time} & \textbf{Outbound} & \textbf{Bag Stat.} & \textbf{BIE} & \textbf{toBIE} & \textbf{Matches ABISv2} \\\midrule
+P & CI0101 & 07:41:24  & CEQ &  &  &  & OK\\
+B & CRWAA & 07:41:24  & CEQ &  &  &  & OK\\
+I & EBSININD & 07:46:56  & CEQ & E & EBS & EBS & OK\\
+D & EBSDN10 & 07:47:06  & CEQ & E & EBS &  & OK\\
+T & EBSOUTIND & 07:53:01  & CEQ & E & EAS & BEH1 & NOK\\
+I & EBSININD & 07:53:22  & CEQ & E & EBS & EBS & OK\\
+D & EBSDN10 & 07:53:32  & CEQ & E & EBS &  & OK\\
+T & EBSOUTIND & 07:57:29  & CEQ & E & EAS & BEH1 & NOK\\
+I & EBSININD & 07:57:49  & CEQ & E & EBS & EBS & OK\\
+D & EBSUP10 & 07:58:00  & CEQ & E & EBS &  & OK\\
+T & EBSOUTIND & 08:05:31  & CEQ & N & EAS & B & OK\\
+S & BIND5ELNS & 08:07:11  & CEQ & N & B & B & OK\\
+I & BIND5ELNS & 08:07:11  & CEQ & N & B & B & OK\\
+S & BIND5ELNS & 08:07:11  & CEQ & N & B & B & OK\\
+D & BCH21 & 08:10:50  & CEQ & N & B &  & OK\\
+\bottomrule
+\end{longtable}
+\pagebreak
+\section*{Simulation bag 14}
+\subsection*{ABISv2 bagtag: 4002000013 Outbound flight: TU100}
+\paragraph{}
+\begin{longtable}{cccccccc}    \toprule
+\rowcolor{white!50}
+\textbf{Ev.Type} & \textbf{Ev.Location} & \textbf{Ev.Time} & \textbf{Outbound} & \textbf{Bag Stat.} & \textbf{BIE} & \textbf{toBIE} & \textbf{Matches ABISv1} \\\midrule
+B & CRWAA & 09:06:02  & CEQ &  &  &  & OK\\
+P & CI0101 & 09:06:02  & CEQ &  &  &  & OK\\
+I & PS1IND5SRTC & 09:11:40  & CEQ & E & PS1 & BEH2 & NOK\\
+P & PS1POS5SRTC & 09:11:41  & CEQ & E & PS1 &  & OK\\
+D & PS1CH05EBS & 09:13:21  & CEQ & E & PS1 & BEH2 & OK\\
+I & EBSININD & 09:13:28  & CEQ & E & EBS & EBS & OK\\
+D & EBSDN10 & 09:13:38  & CEQ & E & EBS & EBS & OK\\
+T & EBSOUTIND & 09:19:31  & CEQ & E & EAS & BEH2 & NOK\\
+I & EBSININD & 09:20:02  & CEQ & E & EBS & EBS & OK\\
+D & EBSDN10 & 09:20:12  & CEQ & E & EBS & EBS & OK\\
+T & EBSOUTIND & 09:22:13  & CEQ & E & EAS & BEH2 & NOK\\
+I & EBSININD & 09:22:34  & CEQ & E & EBS & EBS & OK\\
+D & EBSUP10 & 09:22:44  & CEQ & E & EBS & EBS & NOK\\
+T & EBSOUTIND & 09:30:15  & CEQ & N & EAS & B & OK\\
+I & BIND5ELNS & 09:31:55  & CEQ & N & B & B & OK\\
+S & BIND5ELNS & 09:31:55  & CEQ & N & B & B & OK\\
+D & BCH21 & 09:35:34  & CEQ & N & B & B & OK\\
+\bottomrule
+\end{longtable}
+\subsection*{ABISv1 bagtag: 4003000013 / Outbound flight: TU100 / Inbound flight: IB100}
+\paragraph{}
+\begin{longtable}{cccccccc}    \toprule
+\rowcolor{white!50}
+\textbf{Ev.Type} & \textbf{Ev.Location} & \textbf{Ev.Time} & \textbf{Outbound} & \textbf{Bag Stat.} & \textbf{BIE} & \textbf{toBIE} & \textbf{Matches ABISv2} \\\midrule
+P & CI0101 & 07:41:24  & CEQ &  &  &  & OK\\
+B & CRWAA & 07:41:24  & CEQ &  &  &  & OK\\
+I & PS1IND5SRTC & 07:47:02  & CEQ & E & PS1 & BEH1 & NOK\\
+P & PS1POS5SRTC & 07:47:03  & CEQ & E & PS1 &  & OK\\
+D & PS1CH05EBS & 07:48:43  & CEQ & E & PS1 &  & OK\\
+I & EBSININD & 07:48:47  & CEQ & E & EBS & EBS & OK\\
+D & EBSDN10 & 07:48:57  & CEQ & E & EBS &  & OK\\
+T & EBSOUTIND & 07:54:52  & CEQ & E & EAS & BEH1 & NOK\\
+I & EBSININD & 07:55:14  & CEQ & E & EBS & EBS & OK\\
+D & EBSDN10 & 07:55:24  & CEQ & E & EBS &  & OK\\
+T & EBSOUTIND & 08:01:14  & CEQ & E & EAS & BEH1 & NOK\\
+I & EBSININD & 08:01:35  & CEQ & E & EBS & EBS & OK\\
+D & EBSDN09 & 08:01:45  & CEQ & E & EBS &  & NOK\\
+T & EBSOUTIND & 08:07:31  & CEQ & N & EAS & B & OK\\
+S & BIND5ELNS & 08:09:13  & CEQ & N & B & B & OK\\
+I & BIND5ELNS & 08:09:13  & CEQ & N & B & B & OK\\
+S & BIND5ELNS & 08:09:13  & CEQ & N & B & B & OK\\
+D & BCH21 & 08:12:52  & CEQ & N & B &  & OK\\
+\bottomrule
+\end{longtable}
+\pagebreak
+\section*{Simulation bag 15}
+\subsection*{ABISv2 bagtag: 4002000014 Outbound flight: TU100}
+\paragraph{}
+\begin{longtable}{cccccccc}    \toprule
+\rowcolor{white!50}
+\textbf{Ev.Type} & \textbf{Ev.Location} & \textbf{Ev.Time} & \textbf{Outbound} & \textbf{Bag Stat.} & \textbf{BIE} & \textbf{toBIE} & \textbf{Matches ABISv1} \\\midrule
+B & CRWAA & 09:06:02  & CEQ &  &  &  & OK\\
+P & CI0101 & 09:06:02  & CEQ &  &  &  & OK\\
+\bottomrule
+\end{longtable}
+\subsection*{ABISv1 bagtag: 4003000014 / Outbound flight: TU100 / Inbound flight: IB100}
+\paragraph{}
+\begin{longtable}{cccccccc}    \toprule
+\rowcolor{white!50}
+\textbf{Ev.Type} & \textbf{Ev.Location} & \textbf{Ev.Time} & \textbf{Outbound} & \textbf{Bag Stat.} & \textbf{BIE} & \textbf{toBIE} & \textbf{Matches ABISv2} \\\midrule
+P & CI0101 & 07:41:24  & CEQ &  &  &  & OK\\
+B & CRWAA & 07:41:24  & CEQ &  &  &  & OK\\
+\bottomrule
+\end{longtable}
+\pagebreak
+\section*{Simulation bag 16}
+\subsection*{ABISv2 bagtag: 4002000015 Outbound flight: TU100}
+\paragraph{}
+\begin{longtable}{cccccccc}    \toprule
+\rowcolor{white!50}
+\textbf{Ev.Type} & \textbf{Ev.Location} & \textbf{Ev.Time} & \textbf{Outbound} & \textbf{Bag Stat.} & \textbf{BIE} & \textbf{toBIE} & \textbf{Matches ABISv1} \\\midrule
+B & CRWAZ & 09:06:04  & CEQ &  &  &  & OK\\
+P & CI0101 & 09:06:04  & CEQ &  &  &  & OK\\
+S & CIR1IND0910 & 09:11:46  & CEQ & E & CIR1 & BEH2 & NOK\\
+T & CIR1IND0910 & 09:11:46  & CEQ & E & CIR1 & BEH2 & NOK\\
+T & CR123IND11 & 09:13:48  & CEQ & E & CR123 & BEH2 & NOK\\
+I & BIND11DD & 09:18:44  & CEQ & E & B & BEH2 & NOK\\
+D & BCH45EBS & 09:22:19  & CEQ & E & B & BEH2 & OK\\
+I & EBSININD & 09:23:22  & CEQ & E & EBS & EBS & OK\\
+D & EBSDN09 & 09:23:32  & CEQ & E & EBS & EBS & OK\\
+T & EBSOUTIND & 09:29:18  & CEQ & N & EAS & B & OK\\
+I & BIND5ELNS & 09:30:59  & CEQ & N & B & B & OK\\
+D & BCH21 & 09:34:38  & CEQ & N & B & B & OK\\
+\bottomrule
+\end{longtable}
+\subsection*{ABISv1 bagtag: 4003000015 / Outbound flight: TU100 / Inbound flight: IB100}
+\paragraph{}
+\begin{longtable}{cccccccc}    \toprule
+\rowcolor{white!50}
+\textbf{Ev.Type} & \textbf{Ev.Location} & \textbf{Ev.Time} & \textbf{Outbound} & \textbf{Bag Stat.} & \textbf{BIE} & \textbf{toBIE} & \textbf{Matches ABISv2} \\\midrule
+P & CI0101 & 07:41:26  & CEQ &  &  &  & OK\\
+B & CRWAZ & 07:41:26  & CEQ &  &  &  & OK\\
+S & CIR1IND0910 & 07:47:09  & CEQ & E & CIR1 & BEH1 & NOK\\
+T & CIR1IND0910 & 07:47:09  & CEQ & E & CIR1 & BEH1 & NOK\\
+S & CIR1IND0910 & 07:47:09  & CEQ & E & CIR1 & BEH1 & NOK\\
+T & CR123IND11 & 07:49:02  & CEQ & E & CR123 & BEH1 & NOK\\
+I & BIND11DD & 07:53:58  & CEQ & E & B & BEH1 & NOK\\
+D & BCH45EBS & 07:57:33  & CEQ & E & B &  & OK\\
+I & EBSININD & 07:58:37  & CEQ & E & EBS & EBS & OK\\
+D & EBSDN09 & 07:58:47  & CEQ & E & EBS &  & OK\\
+T & EBSOUTIND & 08:04:32  & CEQ & N & EAS & B & OK\\
+I & BIND5ELNS & 08:06:13  & CEQ & N & B & B & OK\\
+D & BCH21 & 08:09:53  & CEQ & N & B &  & OK\\
+\bottomrule
+\end{longtable}
+\pagebreak
+\section*{Simulation bag 17}
+\subsection*{ABISv2 bagtag: 4002000016 Outbound flight: TU100}
+\paragraph{}
+\begin{longtable}{cccccccc}    \toprule
+\rowcolor{white!50}
+\textbf{Ev.Type} & \textbf{Ev.Location} & \textbf{Ev.Time} & \textbf{Outbound} & \textbf{Bag Stat.} & \textbf{BIE} & \textbf{toBIE} & \textbf{Matches ABISv1} \\\midrule
+B & CRWAZ & 09:06:04  & CEQ &  &  &  & OK\\
+P & CI0101 & 09:06:04  & CEQ &  &  &  & OK\\
+S & CIR3IND0506 & 09:12:27  & CEQ & E & CIR3 & BEH2 & NOK\\
+T & CIR3IND0506 & 09:12:27  & CEQ & E & CIR3 & BEH2 & NOK\\
+T & CR123IND11 & 09:14:45  & CEQ & E & CR123 & BEH2 & NOK\\
+I & BIND11DD & 09:19:47  & CEQ & E & B & BEH2 & NOK\\
+D & BCH45EBS & 09:23:22  & CEQ & E & B & BEH2 & OK\\
+I & EBSININD & 09:24:26  & CEQ & E & EBS & EBS & OK\\
+D & EBSDN09 & 09:24:36  & CEQ & E & EBS & EBS & OK\\
+T & EBSOUTIND & 09:30:21  & CEQ & N & EAS & B & OK\\
+I & BIND5ELNS & 09:32:02  & CEQ & N & B & B & OK\\
+D & BCH21 & 09:35:41  & CEQ & N & B & B & OK\\
+\bottomrule
+\end{longtable}
+\subsection*{ABISv1 bagtag: 4003000016 / Outbound flight: TU100 / Inbound flight: IB100}
+\paragraph{}
+\begin{longtable}{cccccccc}    \toprule
+\rowcolor{white!50}
+\textbf{Ev.Type} & \textbf{Ev.Location} & \textbf{Ev.Time} & \textbf{Outbound} & \textbf{Bag Stat.} & \textbf{BIE} & \textbf{toBIE} & \textbf{Matches ABISv2} \\\midrule
+P & CI0101 & 07:41:26  & CEQ &  &  &  & OK\\
+B & CRWAZ & 07:41:26  & CEQ &  &  &  & OK\\
+S & CIR3IND0506 & 07:47:50  & CEQ & E & CIR3 & BEH1 & NOK\\
+T & CIR3IND0506 & 07:47:50  & CEQ & E & CIR3 & BEH1 & NOK\\
+S & CIR3IND0506 & 07:47:50  & CEQ & E & CIR3 & BEH1 & NOK\\
+T & CR123IND11 & 07:49:50  & CEQ & E & CR123 & BEH1 & NOK\\
+I & BIND11DD & 07:54:48  & CEQ & E & B & BEH1 & NOK\\
+D & BCH45EBS & 07:58:23  & CEQ & E & B &  & OK\\
+I & EBSININD & 07:59:25  & CEQ & E & EBS & EBS & OK\\
+D & EBSDN09 & 07:59:35  & CEQ & E & EBS &  & OK\\
+T & EBSOUTIND & 08:05:23  & CEQ & N & EAS & B & OK\\
+I & BIND5ELNS & 08:07:03  & CEQ & N & B & B & OK\\
+D & BCH21 & 08:10:42  & CEQ & N & B &  & OK\\
+\bottomrule
+\end{longtable}
+\pagebreak
+\section*{Simulation bag 18}
+\subsection*{ABISv2 bagtag: 4002000017 Outbound flight: TU100}
+\paragraph{}
+\begin{longtable}{cccccccc}    \toprule
+\rowcolor{white!50}
+\textbf{Ev.Type} & \textbf{Ev.Location} & \textbf{Ev.Time} & \textbf{Outbound} & \textbf{Bag Stat.} & \textbf{BIE} & \textbf{toBIE} & \textbf{Matches ABISv1} \\\midrule
+B & CRWAZ & 09:06:04  & CEQ &  &  &  & OK\\
+P & CI0101 & 09:06:04  & CEQ &  &  &  & OK\\
+S & CIR5IND01 & 09:12:19  & CEQ & E & CIR5 & BEH2 & NOK\\
+T & CIR5IND01 & 09:12:19  & CEQ & E & CIR5 & BEH2 & NOK\\
+T & CR456IND09 & 09:14:01  & CEQ & E & CR456 & BEH2 & NOK\\
+I & BIND11DD & 09:15:30  & CEQ & E & B & BEH2 & NOK\\
+D & BCH45EBS & 09:19:05  & CEQ & E & B & BEH2 & OK\\
+I & EBSININD & 09:20:14  & CEQ & E & EBS & EBS & OK\\
+D & EBSDN10 & 09:20:24  & CEQ & E & EBS & EBS & OK\\
+T & EBSOUTIND & 09:26:14  & CEQ & E & EAS & BEH2 & NOK\\
+I & EBSININD & 09:26:35  & CEQ & E & EBS & EBS & OK\\
+D & EBSDN09 & 09:26:45  & CEQ & E & EBS & EBS & OK\\
+T & EBSOUTIND & 09:32:32  & CEQ & N & EAS & B & OK\\
+I & BIND5ELNS & 09:34:13  & CEQ & N & B & B & OK\\
+D & BCH21 & 09:37:52  & CEQ & N & B & B & OK\\
+\bottomrule
+\end{longtable}
+\subsection*{ABISv1 bagtag: 4003000017 / Outbound flight: TU100 / Inbound flight: IB100}
+\paragraph{}
+\begin{longtable}{cccccccc}    \toprule
+\rowcolor{white!50}
+\textbf{Ev.Type} & \textbf{Ev.Location} & \textbf{Ev.Time} & \textbf{Outbound} & \textbf{Bag Stat.} & \textbf{BIE} & \textbf{toBIE} & \textbf{Matches ABISv2} \\\midrule
+P & CI0101 & 07:41:26  & CEQ &  &  &  & OK\\
+B & CRWAZ & 07:41:26  & CEQ &  &  &  & OK\\
+S & CIR5IND01 & 07:47:42  & CEQ & E & CIR5 & BEH1 & NOK\\
+T & CIR5IND01 & 07:47:42  & CEQ & E & CIR5 & BEH1 & NOK\\
+S & CIR5IND01 & 07:47:42  & CEQ & E & CIR5 & BEH1 & NOK\\
+T & CR456IND09 & 07:49:36  & CEQ & E & CR456 & BEH1 & NOK\\
+I & BIND11DD & 07:51:00  & CEQ & E & B & BEH1 & NOK\\
+D & BCH45EBS & 07:54:35  & CEQ & E & B &  & OK\\
+I & EBSININD & 07:55:43  & CEQ & E & EBS & EBS & OK\\
+D & EBSDN10 & 07:55:53  & CEQ & E & EBS &  & OK\\
+T & EBSOUTIND & 08:01:43  & CEQ & E & EAS & BEH1 & NOK\\
+I & EBSININD & 08:02:04  & CEQ & E & EBS & EBS & OK\\
+D & EBSDN09 & 08:02:14  & CEQ & E & EBS &  & OK\\
+T & EBSOUTIND & 08:07:59  & CEQ & N & EAS & B & OK\\
+I & BIND5ELNS & 08:09:41  & CEQ & N & B & B & OK\\
+D & BCH21 & 08:13:20  & CEQ & N & B &  & OK\\
+\bottomrule
+\end{longtable}
+\pagebreak
+\section*{Simulation bag 19}
+\subsection*{ABISv2 bagtag: 4002000018 Outbound flight: TU100}
+\paragraph{}
+\begin{longtable}{cccccccc}    \toprule
+\rowcolor{white!50}
+\textbf{Ev.Type} & \textbf{Ev.Location} & \textbf{Ev.Time} & \textbf{Outbound} & \textbf{Bag Stat.} & \textbf{BIE} & \textbf{toBIE} & \textbf{Matches ABISv1} \\\midrule
+B & CRWAZ & 09:06:04  & CEQ &  &  &  & OK\\
+P & CI0101 & 09:06:04  & CEQ &  &  &  & OK\\
+S & CIR11IND11 & 09:11:56  & CEQ & E & CIR11 & BEH2 & NOK\\
+T & CIR11IND11 & 09:11:56  & CEQ & E & CIR11 & BEH2 & NOK\\
+P & CRPF3 & 09:12:27  & CEQ & E & CRPF3 &  & OK\\
+T & SOT1IND & 09:12:59  & CEQ & E & SOT1 & BEH2 & NOK\\
+P & SOT1CH02SRTB & 09:13:20  & CEQ & E & SOT1D &  & OK\\
+I & BIND22DD & 09:15:40  & CEQ & E & B & BEH2 & NOK\\
+D & BCH45EBS & 09:19:13  & CEQ & E & B & BEH2 & OK\\
+I & EBSININD & 09:20:02  & CEQ & E & EBS & EBS & OK\\
+D & EBSDN10 & 09:20:12  & CEQ & E & EBS & EBS & OK\\
+T & EBSOUTIND & 09:22:21  & CEQ & E & EAS & BEH2 & NOK\\
+I & EBSININD & 09:22:41  & CEQ & E & EBS & EBS & OK\\
+D & EBSUP10 & 09:22:51  & CEQ & E & EBS & EBS & OK\\
+T & EBSOUTIND & 09:30:19  & CEQ & N & EAS & B & OK\\
+I & BIND5ELNS & 09:32:00  & CEQ & N & B & B & OK\\
+D & BCH21 & 09:35:39  & CEQ & N & B & B & OK\\
+\bottomrule
+\end{longtable}
+\subsection*{ABISv1 bagtag: 4003000018 / Outbound flight: TU100 / Inbound flight: IB100}
+\paragraph{}
+\begin{longtable}{cccccccc}    \toprule
+\rowcolor{white!50}
+\textbf{Ev.Type} & \textbf{Ev.Location} & \textbf{Ev.Time} & \textbf{Outbound} & \textbf{Bag Stat.} & \textbf{BIE} & \textbf{toBIE} & \textbf{Matches ABISv2} \\\midrule
+P & CI0101 & 07:41:26  & CEQ &  &  &  & OK\\
+B & CRWAZ & 07:41:26  & CEQ &  &  &  & OK\\
+S & CIR11IND11 & 07:47:20  & CEQ & E & CIR11 & BEH1 & NOK\\
+T & CIR11IND11 & 07:47:20  & CEQ & E & CIR11 & BEH1 & NOK\\
+S & CIR11IND11 & 07:47:20  & CEQ & E & CIR11 & BEH1 & NOK\\
+P & CRPF3 & 07:47:51  & CEQ & E & CRPF3 &  & OK\\
+T & SOT1IND & 07:48:21  & CEQ & E & SOT1 & BEH1 & NOK\\
+P & SOT1CH02SRTB & 07:48:40  & CEQ & E & SOT1D &  & OK\\
+I & BIND22DD & 07:51:02  & CEQ & E & B & BEH1 & NOK\\
+D & BCH45EBS & 07:54:35  & CEQ & E & B &  & OK\\
+I & EBSININD & 07:55:22  & CEQ & E & EBS & EBS & OK\\
+D & EBSDN10 & 07:55:32  & CEQ & E & EBS &  & OK\\
+T & EBSOUTIND & 08:01:23  & CEQ & E & EAS & BEH1 & NOK\\
+I & EBSININD & 08:01:44  & CEQ & E & EBS & EBS & OK\\
+D & EBSUP10 & 08:01:54  & CEQ & E & EBS &  & OK\\
+T & EBSOUTIND & 08:07:26  & CEQ & N & EAS & B & OK\\
+I & BIND5ELNS & 08:09:07  & CEQ & N & B & B & OK\\
+D & BCH21 & 08:12:46  & CEQ & N & B &  & OK\\
+\bottomrule
+\end{longtable}
+\pagebreak
+\section*{Simulation bag 20}
+\subsection*{ABISv2 bagtag: 4002000019 Outbound flight: TU100}
+\paragraph{}
+\begin{longtable}{cccccccc}    \toprule
+\rowcolor{white!50}
+\textbf{Ev.Type} & \textbf{Ev.Location} & \textbf{Ev.Time} & \textbf{Outbound} & \textbf{Bag Stat.} & \textbf{BIE} & \textbf{toBIE} & \textbf{Matches ABISv1} \\\midrule
+B & CRWAZ & 09:06:04  & CEQ &  &  &  & OK\\
+P & CI0101 & 09:06:04  & CEQ &  &  &  & OK\\
+P & CIR14 & 09:12:04  & CEQ & E & CIR14 &  & OK\\
+S & CIR14 & 09:12:04  & CEQ & E & CIR14 &  & OK\\
+P & CRPE3 & 09:13:47  & CEQ & E & CREL3 &  & OK\\
+P & CREL3CH05CARE & 09:14:23  & CEQ & E & CREL3 &  & OK\\
+\bottomrule
+\end{longtable}
+\subsection*{ABISv1 bagtag: 4003000019 / Outbound flight: TU100 / Inbound flight: IB100}
+\paragraph{}
+\begin{longtable}{cccccccc}    \toprule
+\rowcolor{white!50}
+\textbf{Ev.Type} & \textbf{Ev.Location} & \textbf{Ev.Time} & \textbf{Outbound} & \textbf{Bag Stat.} & \textbf{BIE} & \textbf{toBIE} & \textbf{Matches ABISv2} \\\midrule
+P & CI0101 & 07:41:26  & CEQ &  &  &  & OK\\
+B & CRWAZ & 07:41:26  & CEQ &  &  &  & OK\\
+P & CIR14 & 07:47:17  & CEQ & E & CIR14 &  & OK\\
+S & CIR14 & 07:47:18  & CEQ & E & CIR14 &  & OK\\
+S & CIR14 & 07:47:18  & CEQ & E & CIR14 &  & OK\\
+P & CRPE3 & 07:48:43  & CEQ & E & CREL3 &  & OK\\
+P & CREL3CH05CARE & 07:49:30  & CEQ & E & CREL3 &  & OK\\
+\bottomrule
+\end{longtable}
+\pagebreak
+\section*{Simulation bag 21}
+\subsection*{ABISv2 bagtag: 4002000020 Outbound flight: TU100}
+\paragraph{}
+\begin{longtable}{cccccccc}    \toprule
+\rowcolor{white!50}
+\textbf{Ev.Type} & \textbf{Ev.Location} & \textbf{Ev.Time} & \textbf{Outbound} & \textbf{Bag Stat.} & \textbf{BIE} & \textbf{toBIE} & \textbf{Matches ABISv1} \\\midrule
+B & CRWAZ & 09:06:04  & CEQ &  &  &  & OK\\
+P & CI0101 & 09:06:04  & CEQ &  &  &  & OK\\
+P & PBTRF2 & 09:11:28  & CEQ & E & INB2 &  & OK\\
+I & PS1IND2TRF & 09:11:30  & CEQ & E & PS1 & BEH2 & NOK\\
+P & PS1POS2TRF & 09:11:31  & CEQ & E & PS1 &  & OK\\
+D & PS1CH05EBS & 09:11:32  & CEQ & E & PS1 & BEH2 & OK\\
+I & EBSININD & 09:14:51  & CEQ & E & EBS & EBS & OK\\
+D & EBSDN10 & 09:15:01  & CEQ & E & EBS & EBS & OK\\
+T & EBSOUTIND & 09:20:52  & CEQ & E & EAS & BEH2 & NOK\\
+I & EBSININD & 09:21:12  & CEQ & E & EBS & EBS & OK\\
+D & EBSDN10 & 09:21:23  & CEQ & E & EBS & EBS & OK\\
+T & EBSOUTIND & 09:27:13  & CEQ & E & EAS & BEH2 & NOK\\
+I & EBSININD & 09:27:34  & CEQ & E & EBS & EBS & OK\\
+D & EBSUP10 & 09:27:44  & CEQ & E & EBS & EBS & OK\\
+T & EBSOUTIND & 09:35:15  & CEQ & N & EAS & B & OK\\
+I & BIND5ELNS & 09:36:56  & CEQ & N & B & B & OK\\
+S & BIND5ELNS & 09:36:56  & CEQ & N & B & B & OK\\
+D & BCH21 & 09:40:35  & CEQ & N & B & B & OK\\
+\bottomrule
+\end{longtable}
+\subsection*{ABISv1 bagtag: 4003000020 / Outbound flight: TU100 / Inbound flight: IB100}
+\paragraph{}
+\begin{longtable}{cccccccc}    \toprule
+\rowcolor{white!50}
+\textbf{Ev.Type} & \textbf{Ev.Location} & \textbf{Ev.Time} & \textbf{Outbound} & \textbf{Bag Stat.} & \textbf{BIE} & \textbf{toBIE} & \textbf{Matches ABISv2} \\\midrule
+P & CI0101 & 07:41:26  & CEQ &  &  &  & OK\\
+B & CRWAZ & 07:41:26  & CEQ &  &  &  & OK\\
+P & PBTRF2 & 07:46:49  & CEQ & E & INB2 &  & OK\\
+I & PS1IND2TRF & 07:46:52  & CEQ & E & PS1 & BEH1 & NOK\\
+P & PS1POS2TRF & 07:46:53  & CEQ & E & PS1 &  & OK\\
+D & PS1CH05EBS & 07:46:54  & CEQ & E & PS1 &  & OK\\
+I & EBSININD & 07:49:58  & CEQ & E & EBS & EBS & OK\\
+D & EBSDN10 & 07:50:08  & CEQ & E & EBS &  & OK\\
+T & EBSOUTIND & 07:56:00  & CEQ & E & EAS & BEH1 & NOK\\
+I & EBSININD & 07:56:20  & CEQ & E & EBS & EBS & OK\\
+D & EBSDN10 & 07:56:30  & CEQ & E & EBS &  & OK\\
+T & EBSOUTIND & 08:02:21  & CEQ & E & EAS & BEH1 & NOK\\
+I & EBSININD & 08:02:41  & CEQ & E & EBS & EBS & OK\\
+D & EBSUP10 & 08:02:51  & CEQ & E & EBS &  & OK\\
+T & EBSOUTIND & 08:10:22  & CEQ & N & EAS & B & OK\\
+S & BIND5ELNS & 08:12:02  & CEQ & N & B & B & OK\\
+I & BIND5ELNS & 08:12:02  & CEQ & N & B & B & OK\\
+S & BIND5ELNS & 08:12:02  & CEQ & N & B & B & OK\\
+D & BCH21 & 08:15:41  & CEQ & N & B &  & OK\\
+\bottomrule
+\end{longtable}
+\pagebreak
+\section*{Simulation bag 22}
+\subsection*{ABISv2 bagtag: 4002000021 Outbound flight: TU100}
+\paragraph{}
+\begin{longtable}{cccccccc}    \toprule
+\rowcolor{white!50}
+\textbf{Ev.Type} & \textbf{Ev.Location} & \textbf{Ev.Time} & \textbf{Outbound} & \textbf{Bag Stat.} & \textbf{BIE} & \textbf{toBIE} & \textbf{Matches ABISv1} \\\midrule
+B & CRWAZ & 09:06:04  & CEQ &  &  &  & OK\\
+P & CI0101 & 09:06:04  & CEQ &  &  &  & OK\\
+I & AIND5ELNS & 09:11:37  & CEQ & E & A & BEH2 & NOK\\
+S & AIND5ELNS & 09:11:37  & CEQ & E & A & BEH2 & NOK\\
+D & ACH45EBS & 09:13:42  & CEQ & E & A & BEH2 & OK\\
+I & EBSININD & 09:14:44  & CEQ & E & EBS & EBS & OK\\
+D & EBSDN10 & 09:14:54  & CEQ & E & EBS & EBS & OK\\
+T & EBSOUTIND & 09:20:44  & CEQ & E & EAS & BEH2 & NOK\\
+I & EBSININD & 09:21:05  & CEQ & E & EBS & EBS & OK\\
+D & EBSDN10 & 09:21:15  & CEQ & E & EBS & EBS & OK\\
+T & EBSOUTIND & 09:27:05  & CEQ & E & EAS & BEH2 & NOK\\
+I & EBSININD & 09:27:26  & CEQ & E & EBS & EBS & OK\\
+D & EBSUP10 & 09:27:36  & CEQ & E & EBS & EBS & OK\\
+T & EBSOUTIND & 09:35:08  & CEQ & N & EAS & B & OK\\
+I & BIND5ELNS & 09:36:48  & CEQ & N & B & B & OK\\
+D & BCH21 & 09:40:27  & CEQ & N & B & B & OK\\
+\bottomrule
+\end{longtable}
+\subsection*{ABISv1 bagtag: 4003000021 / Outbound flight: TU100 / Inbound flight: IB100}
+\paragraph{}
+\begin{longtable}{cccccccc}    \toprule
+\rowcolor{white!50}
+\textbf{Ev.Type} & \textbf{Ev.Location} & \textbf{Ev.Time} & \textbf{Outbound} & \textbf{Bag Stat.} & \textbf{BIE} & \textbf{toBIE} & \textbf{Matches ABISv2} \\\midrule
+P & CI0101 & 07:41:26  & CEQ &  &  &  & OK\\
+B & CRWAZ & 07:41:26  & CEQ &  &  &  & OK\\
+S & AIND5ELNS & 07:47:00  & CEQ & E & A & BEH1 & NOK\\
+I & AIND5ELNS & 07:47:00  & CEQ & E & A & BEH1 & NOK\\
+S & AIND5ELNS & 07:47:00  & CEQ & E & A & BEH1 & NOK\\
+D & ACH45EBS & 07:49:05  & CEQ & E & A &  & OK\\
+I & EBSININD & 07:49:49  & CEQ & E & EBS & EBS & OK\\
+D & EBSDN10 & 07:49:59  & CEQ & E & EBS &  & OK\\
+T & EBSOUTIND & 07:55:50  & CEQ & E & EAS & BEH1 & NOK\\
+I & EBSININD & 07:56:10  & CEQ & E & EBS & EBS & OK\\
+D & EBSDN10 & 07:56:21  & CEQ & E & EBS &  & OK\\
+T & EBSOUTIND & 08:02:11  & CEQ & E & EAS & BEH1 & NOK\\
+I & EBSININD & 08:02:31  & CEQ & E & EBS & EBS & OK\\
+D & EBSUP10 & 08:02:41  & CEQ & E & EBS &  & OK\\
+T & EBSOUTIND & 08:10:12  & CEQ & N & EAS & B & OK\\
+I & BIND5ELNS & 08:11:53  & CEQ & N & B & B & OK\\
+D & BCH21 & 08:15:33  & CEQ & N & B &  & OK\\
+\bottomrule
+\end{longtable}
+\pagebreak
+\section*{Simulation bag 23}
+\subsection*{ABISv2 bagtag: 4002000022 Outbound flight: TU100}
+\paragraph{}
+\begin{longtable}{cccccccc}    \toprule
+\rowcolor{white!50}
+\textbf{Ev.Type} & \textbf{Ev.Location} & \textbf{Ev.Time} & \textbf{Outbound} & \textbf{Bag Stat.} & \textbf{BIE} & \textbf{toBIE} & \textbf{Matches ABISv1} \\\midrule
+B & CRWAZ & 09:06:04  & CEQ &  &  &  & OK\\
+P & CI0101 & 09:06:04  & CEQ &  &  &  & OK\\
+P & PBTRF5 & 09:11:32  & CEQ & E & INB5 &  & OK\\
+P & TPBIND08 & 09:13:55  & CEQ & E & TPB &  & OK\\
+S & TPBIND08 & 09:13:55  & CEQ & E & TPB &  & OK\\
+P & TPL3IND13 & 09:16:08  & CEQ & E & TPL3 &  & OK\\
+T & TPIND & 09:17:12  & CEQ & E & TA & BEH2 & NOK\\
+I & BIND22DD & 09:18:43  & CEQ & E & B & BEH2 & NOK\\
+D & BCH45EBS & 09:22:16  & CEQ & E & B & BEH2 & OK\\
+I & EBSININD & 09:23:04  & CEQ & E & EBS & EBS & OK\\
+D & EBSUP10 & 09:23:14  & CEQ & E & EBS & EBS & NOK\\
+T & EBSOUTIND & 09:30:44  & CEQ & N & EAS & B & OK\\
+I & BIND5ELNS & 09:32:26  & CEQ & N & B & B & OK\\
+D & BCH21 & 09:36:05  & CEQ & N & B & B & OK\\
+\bottomrule
+\end{longtable}
+\subsection*{ABISv1 bagtag: 4003000022 / Outbound flight: TU100 / Inbound flight: IB100}
+\paragraph{}
+\begin{longtable}{cccccccc}    \toprule
+\rowcolor{white!50}
+\textbf{Ev.Type} & \textbf{Ev.Location} & \textbf{Ev.Time} & \textbf{Outbound} & \textbf{Bag Stat.} & \textbf{BIE} & \textbf{toBIE} & \textbf{Matches ABISv2} \\\midrule
+P & CI0101 & 07:41:26  & CEQ &  &  &  & OK\\
+B & CRWAZ & 07:41:26  & CEQ &  &  &  & OK\\
+P & PBTRF5 & 07:46:54  & CEQ & E & INB5 &  & OK\\
+S & TPBIND08 & 07:49:10  & CEQ & E & TPB &  & OK\\
+P & TPBIND08 & 07:49:10  & CEQ & E & TPB &  & OK\\
+S & TPBIND08 & 07:49:10  & CEQ & E & TPB &  & OK\\
+P & TPL3IND13 & 07:51:30  & CEQ & E & TPL3 &  & OK\\
+T & TPIND & 07:52:23  & CEQ & E & TA & BEH1 & NOK\\
+I & BIND22DD & 07:53:54  & CEQ & E & B & BEH1 & NOK\\
+D & BCH45EBS & 07:57:27  & CEQ & E & B &  & OK\\
+I & EBSININD & 07:58:14  & CEQ & E & EBS & EBS & OK\\
+D & EBSDN09 & 07:58:24  & CEQ & E & EBS &  & NOK\\
+T & EBSOUTIND & 08:04:11  & CEQ & N & EAS & B & OK\\
+I & BIND5ELNS & 08:05:52  & CEQ & N & B & B & OK\\
+D & BCH21 & 08:09:31  & CEQ & N & B &  & OK\\
+\bottomrule
+\end{longtable}
+\pagebreak
+\section*{Simulation bag 24}
+\subsection*{ABISv2 bagtag: 4002000023 Outbound flight: TU100}
+\paragraph{}
+\begin{longtable}{cccccccc}    \toprule
+\rowcolor{white!50}
+\textbf{Ev.Type} & \textbf{Ev.Location} & \textbf{Ev.Time} & \textbf{Outbound} & \textbf{Bag Stat.} & \textbf{BIE} & \textbf{toBIE} & \textbf{Matches ABISv1} \\\midrule
+B & CRWAZ & 09:06:04  & CEQ &  &  &  & OK\\
+P & CI0101 & 09:06:04  & CEQ &  &  &  & OK\\
+P & PBTRF8 & 09:11:39  & CEQ & E & INB8 &  & OK\\
+P & TPBIND08 & 09:13:23  & CEQ & E & TPB &  & OK\\
+S & TPBIND08 & 09:13:23  & CEQ & E & TPB &  & OK\\
+P & TPL3IND13 & 09:15:40  & CEQ & E & TPL3 &  & OK\\
+T & TPIND & 09:16:31  & CEQ & E & TA & BEH2 & NOK\\
+I & BIND22DD & 09:18:03  & CEQ & E & B & BEH2 & NOK\\
+D & BCH45EBS & 09:21:36  & CEQ & E & B & BEH2 & OK\\
+I & EBSININD & 09:22:23  & CEQ & E & EBS & EBS & OK\\
+D & EBSUP10 & 09:22:33  & CEQ & E & EBS & EBS & OK\\
+T & EBSOUTIND & 09:30:04  & CEQ & N & EAS & B & OK\\
+I & BIND5ELNS & 09:31:45  & CEQ & N & B & B & OK\\
+D & BCH21 & 09:35:24  & CEQ & N & B & B & OK\\
+\bottomrule
+\end{longtable}
+\subsection*{ABISv1 bagtag: 4003000023 / Outbound flight: TU100 / Inbound flight: IB100}
+\paragraph{}
+\begin{longtable}{cccccccc}    \toprule
+\rowcolor{white!50}
+\textbf{Ev.Type} & \textbf{Ev.Location} & \textbf{Ev.Time} & \textbf{Outbound} & \textbf{Bag Stat.} & \textbf{BIE} & \textbf{toBIE} & \textbf{Matches ABISv2} \\\midrule
+P & CI0101 & 07:41:26  & CEQ &  &  &  & OK\\
+B & CRWAZ & 07:41:26  & CEQ &  &  &  & OK\\
+P & PBTRF8 & 07:46:56  & CEQ & E & INB8 &  & OK\\
+S & TPBIND08 & 07:48:43  & CEQ & E & TPB &  & OK\\
+P & TPBIND08 & 07:48:43  & CEQ & E & TPB &  & OK\\
+S & TPBIND08 & 07:48:43  & CEQ & E & TPB &  & OK\\
+P & TPL3IND13 & 07:51:02  & CEQ & E & TPL3 &  & OK\\
+T & TPIND & 07:51:50  & CEQ & E & TA & BEH1 & NOK\\
+I & BIND22DD & 07:53:22  & CEQ & E & B & BEH1 & NOK\\
+D & BCH45EBS & 07:56:55  & CEQ & E & B &  & OK\\
+I & EBSININD & 07:57:41  & CEQ & E & EBS & EBS & OK\\
+D & EBSUP10 & 07:57:52  & CEQ & E & EBS &  & OK\\
+T & EBSOUTIND & 08:05:22  & CEQ & N & EAS & B & OK\\
+I & BIND5ELNS & 08:07:03  & CEQ & N & B & B & OK\\
+D & BCH21 & 08:10:42  & CEQ & N & B &  & OK\\
+\bottomrule
+\end{longtable}
+\pagebreak
+\section*{Simulation bag 25}
+\subsection*{ABISv2 bagtag: 4002000024 Outbound flight: TU100}
+\paragraph{}
+\begin{longtable}{cccccccc}    \toprule
+\rowcolor{white!50}
+\textbf{Ev.Type} & \textbf{Ev.Location} & \textbf{Ev.Time} & \textbf{Outbound} & \textbf{Bag Stat.} & \textbf{BIE} & \textbf{toBIE} & \textbf{Matches ABISv1} \\\midrule
+B & CRWAZ & 09:06:04  & CEQ &  &  &  & OK\\
+P & CI0101 & 09:06:04  & CEQ &  &  &  & OK\\
+P & PBTRM2 & 09:11:32  & CEQ & W & INB2 &  & OK\\
+\bottomrule
+\end{longtable}
+\subsection*{ABISv1 bagtag: 4003000024 / Outbound flight: TU100 / Inbound flight: IB100}
+\paragraph{}
+\begin{longtable}{cccccccc}    \toprule
+\rowcolor{white!50}
+\textbf{Ev.Type} & \textbf{Ev.Location} & \textbf{Ev.Time} & \textbf{Outbound} & \textbf{Bag Stat.} & \textbf{BIE} & \textbf{toBIE} & \textbf{Matches ABISv2} \\\midrule
+P & CI0101 & 07:41:26  & CEQ &  &  &  & OK\\
+B & CRWAZ & 07:41:26  & CEQ &  &  &  & OK\\
+P & PBTRM2 & 07:46:54  & CEQ & W & INB2 &  & OK\\
+\bottomrule
+\end{longtable}
+\pagebreak
+\section*{Simulation bag 26}
+\subsection*{ABISv2 bagtag: 4002000025 Outbound flight: TU100}
+\paragraph{}
+\begin{longtable}{cccccccc}    \toprule
+\rowcolor{white!50}
+\textbf{Ev.Type} & \textbf{Ev.Location} & \textbf{Ev.Time} & \textbf{Outbound} & \textbf{Bag Stat.} & \textbf{BIE} & \textbf{toBIE} & \textbf{Matches ABISv1} \\\midrule
+B & CRWAZ & 09:06:04  & CEQ &  &  &  & OK\\
+P & CI0101 & 09:06:04  & CEQ &  &  &  & OK\\
+P & PBTRM4 & 09:11:37  & CEQ & W & INB4 &  & OK\\
+\bottomrule
+\end{longtable}
+\subsection*{ABISv1 bagtag: 4003000025 / Outbound flight: TU100 / Inbound flight: IB100}
+\paragraph{}
+\begin{longtable}{cccccccc}    \toprule
+\rowcolor{white!50}
+\textbf{Ev.Type} & \textbf{Ev.Location} & \textbf{Ev.Time} & \textbf{Outbound} & \textbf{Bag Stat.} & \textbf{BIE} & \textbf{toBIE} & \textbf{Matches ABISv2} \\\midrule
+P & CI0101 & 07:41:26  & CEQ &  &  &  & OK\\
+B & CRWAZ & 07:41:26  & CEQ &  &  &  & OK\\
+P & PBTRM4 & 07:47:00  & CEQ & W & INB4 &  & OK\\
+\bottomrule
+\end{longtable}
+\pagebreak
+\section*{Simulation bag 27}
+\subsection*{ABISv2 bagtag: 4002000026 Outbound flight: TU100}
+\paragraph{}
+\begin{longtable}{cccccccc}    \toprule
+\rowcolor{white!50}
+\textbf{Ev.Type} & \textbf{Ev.Location} & \textbf{Ev.Time} & \textbf{Outbound} & \textbf{Bag Stat.} & \textbf{BIE} & \textbf{toBIE} & \textbf{Matches ABISv1} \\\midrule
+B & CRWAZ & 09:06:04  & CEQ &  &  &  & OK\\
+P & CI0101 & 09:06:04  & CEQ &  &  &  & OK\\
+P & PBTRM7 & 09:11:37  & CEQ & W & INB7 &  & OK\\
+\bottomrule
+\end{longtable}
+\subsection*{ABISv1 bagtag: 4003000026 / Outbound flight: TU100 / Inbound flight: IB100}
+\paragraph{}
+\begin{longtable}{cccccccc}    \toprule
+\rowcolor{white!50}
+\textbf{Ev.Type} & \textbf{Ev.Location} & \textbf{Ev.Time} & \textbf{Outbound} & \textbf{Bag Stat.} & \textbf{BIE} & \textbf{toBIE} & \textbf{Matches ABISv2} \\\midrule
+P & CI0101 & 07:41:26  & CEQ &  &  &  & OK\\
+B & CRWAZ & 07:41:26  & CEQ &  &  &  & OK\\
+P & PBTRM7 & 07:47:00  & CEQ & W & INB7 &  & OK\\
+\bottomrule
+\end{longtable}
+\pagebreak
+\section*{Simulation bag 28}
+\subsection*{ABISv2 bagtag: 4002000027 Outbound flight: TU100}
+\paragraph{}
+\begin{longtable}{cccccccc}    \toprule
+\rowcolor{white!50}
+\textbf{Ev.Type} & \textbf{Ev.Location} & \textbf{Ev.Time} & \textbf{Outbound} & \textbf{Bag Stat.} & \textbf{BIE} & \textbf{toBIE} & \textbf{Matches ABISv1} \\\midrule
+B & CRWAZ & 09:06:04  & CEQ &  &  &  & OK\\
+P & CI0101 & 09:06:04  & CEQ &  &  &  & OK\\
+I & EBSININD & 09:11:34  & CEQ & E & EBS & EBS & OK\\
+D & EBSDN10 & 09:11:44  & CEQ & E & EBS & EBS & OK\\
+T & EBSOUTIND & 09:17:36  & CEQ & E & EAS & BEH2 & NOK\\
+I & EBSININD & 09:17:58  & CEQ & E & EBS & EBS & OK\\
+D & EBSDN10 & 09:18:08  & CEQ & E & EBS & EBS & OK\\
+T & EBSOUTIND & 09:22:13  & CEQ & E & EAS & BEH2 & NOK\\
+I & EBSININD & 09:22:34  & CEQ & E & EBS & EBS & OK\\
+D & EBSUP10 & 09:22:44  & CEQ & E & EBS & EBS & OK\\
+T & EBSOUTIND & 09:30:10  & CEQ & N & EAS & B & OK\\
+I & BIND5ELNS & 09:31:51  & CEQ & N & B & B & OK\\
+S & BIND5ELNS & 09:31:51  & CEQ & N & B & B & OK\\
+D & BCH21 & 09:35:30  & CEQ & N & B & B & OK\\
+\bottomrule
+\end{longtable}
+\subsection*{ABISv1 bagtag: 4003000027 / Outbound flight: TU100 / Inbound flight: IB100}
+\paragraph{}
+\begin{longtable}{cccccccc}    \toprule
+\rowcolor{white!50}
+\textbf{Ev.Type} & \textbf{Ev.Location} & \textbf{Ev.Time} & \textbf{Outbound} & \textbf{Bag Stat.} & \textbf{BIE} & \textbf{toBIE} & \textbf{Matches ABISv2} \\\midrule
+P & CI0101 & 07:41:26  & CEQ &  &  &  & OK\\
+B & CRWAZ & 07:41:26  & CEQ &  &  &  & OK\\
+I & EBSININD & 07:46:56  & CEQ & E & EBS & EBS & OK\\
+D & EBSDN10 & 07:47:07  & CEQ & E & EBS &  & OK\\
+T & EBSOUTIND & 07:53:01  & CEQ & E & EAS & BEH1 & NOK\\
+I & EBSININD & 07:53:22  & CEQ & E & EBS & EBS & OK\\
+D & EBSDN10 & 07:53:32  & CEQ & E & EBS &  & OK\\
+T & EBSOUTIND & 07:57:30  & CEQ & E & EAS & BEH1 & NOK\\
+I & EBSININD & 07:57:51  & CEQ & E & EBS & EBS & OK\\
+D & EBSUP10 & 07:58:01  & CEQ & E & EBS &  & OK\\
+T & EBSOUTIND & 08:05:31  & CEQ & N & EAS & B & OK\\
+S & BIND5ELNS & 08:07:11  & CEQ & N & B & B & OK\\
+I & BIND5ELNS & 08:07:11  & CEQ & N & B & B & OK\\
+S & BIND5ELNS & 08:07:11  & CEQ & N & B & B & OK\\
+D & BCH21 & 08:10:50  & CEQ & N & B &  & OK\\
+\bottomrule
+\end{longtable}
+\pagebreak
+\section*{Simulation bag 29}
+\subsection*{ABISv2 bagtag: 4002000028 Outbound flight: TU100}
+\paragraph{}
+\begin{longtable}{cccccccc}    \toprule
+\rowcolor{white!50}
+\textbf{Ev.Type} & \textbf{Ev.Location} & \textbf{Ev.Time} & \textbf{Outbound} & \textbf{Bag Stat.} & \textbf{BIE} & \textbf{toBIE} & \textbf{Matches ABISv1} \\\midrule
+B & CRWAZ & 09:06:04  & CEQ &  &  &  & OK\\
+P & CI0101 & 09:06:04  & CEQ &  &  &  & OK\\
+I & PS1IND5SRTC & 09:11:46  & CEQ & E & PS1 & BEH2 & NOK\\
+P & PS1POS5SRTC & 09:11:47  & CEQ & E & PS1 &  & OK\\
+I & EBSININD & 09:13:28  & CEQ & E & EBS & EBS & OK\\
+D & PS1CH05EBS & 09:13:28  & CEQ & E & PS1 & BEH2 & OK\\
+D & EBSDN10 & 09:13:38  & CEQ & E & EBS & BEH2 & OK\\
+T & EBSOUTIND & 09:19:31  & CEQ & E & EAS & BEH2 & NOK\\
+I & EBSININD & 09:20:02  & CEQ & E & EBS & EBS & OK\\
+D & EBSDN10 & 09:20:12  & CEQ & E & EBS & EBS & OK\\
+T & EBSOUTIND & 09:22:13  & CEQ & E & EAS & BEH2 & NOK\\
+I & EBSININD & 09:22:34  & CEQ & E & EBS & EBS & OK\\
+D & EBSUP10 & 09:22:44  & CEQ & E & EBS & EBS & NOK\\
+T & EBSOUTIND & 09:30:15  & CEQ & N & EAS & B & OK\\
+I & BIND5ELNS & 09:31:55  & CEQ & N & B & B & OK\\
+S & BIND5ELNS & 09:31:55  & CEQ & N & B & B & OK\\
+D & BCH21 & 09:35:34  & CEQ & N & B & B & OK\\
+\bottomrule
+\end{longtable}
+\subsection*{ABISv1 bagtag: 4003000028 / Outbound flight: TU100 / Inbound flight: IB100}
+\paragraph{}
+\begin{longtable}{cccccccc}    \toprule
+\rowcolor{white!50}
+\textbf{Ev.Type} & \textbf{Ev.Location} & \textbf{Ev.Time} & \textbf{Outbound} & \textbf{Bag Stat.} & \textbf{BIE} & \textbf{toBIE} & \textbf{Matches ABISv2} \\\midrule
+P & CI0101 & 07:41:26  & CEQ &  &  &  & OK\\
+B & CRWAZ & 07:41:26  & CEQ &  &  &  & OK\\
+I & PS1IND5SRTC & 07:47:09  & CEQ & E & PS1 & BEH1 & NOK\\
+P & PS1POS5SRTC & 07:47:10  & CEQ & E & PS1 &  & OK\\
+I & EBSININD & 07:48:47  & CEQ & E & EBS & EBS & OK\\
+D & PS1CH05EBS & 07:48:50  & CEQ & E & PS1 &  & OK\\
+D & EBSDN10 & 07:48:57  & CEQ & E & EBS &  & OK\\
+T & EBSOUTIND & 07:54:52  & CEQ & E & EAS & BEH1 & NOK\\
+I & EBSININD & 07:55:14  & CEQ & E & EBS & EBS & OK\\
+D & EBSDN10 & 07:55:24  & CEQ & E & EBS &  & OK\\
+T & EBSOUTIND & 08:01:15  & CEQ & E & EAS & BEH1 & NOK\\
+I & EBSININD & 08:01:36  & CEQ & E & EBS & EBS & OK\\
+D & EBSDN09 & 08:01:46  & CEQ & E & EBS &  & NOK\\
+T & EBSOUTIND & 08:07:32  & CEQ & N & EAS & B & OK\\
+S & BIND5ELNS & 08:09:13  & CEQ & N & B & B & OK\\
+I & BIND5ELNS & 08:09:13  & CEQ & N & B & B & OK\\
+S & BIND5ELNS & 08:09:13  & CEQ & N & B & B & OK\\
+D & BCH21 & 08:12:52  & CEQ & N & B &  & OK\\
+\bottomrule
+\end{longtable}
+\pagebreak
+\section*{Simulation bag 30}
+\subsection*{ABISv2 bagtag: 4002000029 Outbound flight: TU100}
+\paragraph{}
+\begin{longtable}{cccccccc}    \toprule
+\rowcolor{white!50}
+\textbf{Ev.Type} & \textbf{Ev.Location} & \textbf{Ev.Time} & \textbf{Outbound} & \textbf{Bag Stat.} & \textbf{BIE} & \textbf{toBIE} & \textbf{Matches ABISv1} \\\midrule
+B & CRWAZ & 09:06:04  & CEQ &  &  &  & OK\\
+P & CI0101 & 09:06:04  & CEQ &  &  &  & OK\\
+\bottomrule
+\end{longtable}
+\subsection*{ABISv1 bagtag: 4003000029 / Outbound flight: TU100 / Inbound flight: IB100}
+\paragraph{}
+\begin{longtable}{cccccccc}    \toprule
+\rowcolor{white!50}
+\textbf{Ev.Type} & \textbf{Ev.Location} & \textbf{Ev.Time} & \textbf{Outbound} & \textbf{Bag Stat.} & \textbf{BIE} & \textbf{toBIE} & \textbf{Matches ABISv2} \\\midrule
+P & CI0101 & 07:41:26  & CEQ &  &  &  & OK\\
+B & CRWAZ & 07:41:26  & CEQ &  &  &  & OK\\
+\bottomrule
+\end{longtable}
+\pagebreak
+\section*{Simulation bag 31}
+\subsection*{ABISv2 bagtag: 4002000030 Outbound flight: TU100}
+\paragraph{}
+\begin{longtable}{cccccccc}    \toprule
+\rowcolor{white!50}
+\textbf{Ev.Type} & \textbf{Ev.Location} & \textbf{Ev.Time} & \textbf{Outbound} & \textbf{Bag Stat.} & \textbf{BIE} & \textbf{toBIE} & \textbf{Matches ABISv1} \\\midrule
+B & CRWAC & 09:06:06  & CEQ &  &  &  & OK\\
+S & CIR1IND0910 & 09:11:54  & CEQ & E & CIR1 & BEH2 & NOK\\
+T & CIR1IND0910 & 09:11:54  & CEQ & E & CIR1 & BEH2 & NOK\\
+T & CR123IND11 & 09:13:48  & CEQ & E & CR123 & BEH2 & NOK\\
+T & CRL4IND01 & 09:15:14  & CEQ & E & CRL4 & BEH2 & NOK\\
+I & BIND11DD & 09:15:56  & CEQ & E & B & BEH2 & NOK\\
+D & BCH45EBS & 09:19:31  & CEQ & E & B & BEH2 & NOK\\
+I & EBSININD & 09:20:40  & CEQ & E & EBS & EBS & OK\\
+D & EBSDN10 & 09:20:50  & CEQ & E & EBS & EBS & OK\\
+T & EBSOUTIND & 09:26:41  & CEQ & E & EAS & BEH2 & NOK\\
+I & EBSININD & 09:27:01  & CEQ & E & EBS & EBS & OK\\
+D & EBSUP10 & 09:27:11  & CEQ & E & EBS & EBS & NOK\\
+T & EBSOUTIND & 09:34:41  & CEQ & N & EAS & B & OK\\
+I & BIND5ELNS & 09:36:23  & CEQ & N & B & B & OK\\
+D & BCH21 & 09:40:02  & CEQ & N & B & B & OK\\
+\bottomrule
+\end{longtable}
+\subsection*{ABISv1 bagtag: 4003000030 / Outbound flight: TU100 / Inbound flight: IB100}
+\paragraph{}
+\begin{longtable}{cccccccc}    \toprule
+\rowcolor{white!50}
+\textbf{Ev.Type} & \textbf{Ev.Location} & \textbf{Ev.Time} & \textbf{Outbound} & \textbf{Bag Stat.} & \textbf{BIE} & \textbf{toBIE} & \textbf{Matches ABISv2} \\\midrule
+P & CI0101 & 07:41:28  & CEQ &  &  &  & NOK\\
+B & CRWAC & 07:41:28  & CEQ &  &  &  & OK\\
+S & CIR1IND0910 & 07:47:18  & CEQ & E & CIR1 & BEH1 & NOK\\
+T & CIR1IND0910 & 07:47:18  & CEQ & E & CIR1 & BEH1 & NOK\\
+S & CIR1IND0910 & 07:47:18  & CEQ & E & CIR1 & BEH1 & NOK\\
+T & CR123IND11 & 07:49:03  & CEQ & E & CR123 & BEH1 & NOK\\
+T & CRL4IND01 & 07:50:29  & CEQ & E & CRL4 & BEH1 & NOK\\
+I & AIND23DD & 07:51:12  & CEQ & E & A & BEH1 & NOK\\
+D & ACH45EBS & 07:54:45  & CEQ & E & A &  & NOK\\
+I & EBSININD & 07:55:41  & CEQ & E & EBS & EBS & OK\\
+D & EBSDN10 & 07:55:51  & CEQ & E & EBS &  & OK\\
+T & EBSOUTIND & 08:01:41  & CEQ & E & EAS & BEH1 & NOK\\
+I & EBSININD & 08:02:02  & CEQ & E & EBS & EBS & OK\\
+D & EBSDN09 & 08:02:12  & CEQ & E & EBS &  & NOK\\
+T & EBSOUTIND & 08:07:57  & CEQ & N & EAS & B & OK\\
+I & BIND5ELNS & 08:09:39  & CEQ & N & B & B & OK\\
+D & BCH21 & 08:13:18  & CEQ & N & B &  & OK\\
+\bottomrule
+\end{longtable}
+\pagebreak
+\section*{Simulation bag 32}
+\subsection*{ABISv2 bagtag: 4002000031 Outbound flight: TU100}
+\paragraph{}
+\begin{longtable}{cccccccc}    \toprule
+\rowcolor{white!50}
+\textbf{Ev.Type} & \textbf{Ev.Location} & \textbf{Ev.Time} & \textbf{Outbound} & \textbf{Bag Stat.} & \textbf{BIE} & \textbf{toBIE} & \textbf{Matches ABISv1} \\\midrule
+B & CRWAC & 09:06:06  & CEQ &  &  &  & OK\\
+S & CIR3IND0506 & 09:12:27  & CEQ & E & CIR3 & BEH2 & NOK\\
+T & CIR3IND0506 & 09:12:27  & CEQ & E & CIR3 & BEH2 & NOK\\
+T & CR123IND11 & 09:14:46  & CEQ & E & CR123 & BEH2 & NOK\\
+T & CRL4IND01 & 09:16:12  & CEQ & E & CRL4 & BEH2 & NOK\\
+I & BIND11DD & 09:16:54  & CEQ & E & B & BEH2 & NOK\\
+D & BCH45EBS & 09:20:29  & CEQ & E & B & BEH2 & NOK\\
+I & EBSININD & 09:21:32  & CEQ & E & EBS & EBS & OK\\
+D & EBSUP10 & 09:21:42  & CEQ & E & EBS & EBS & OK\\
+T & EBSOUTIND & 09:29:14  & CEQ & N & EAS & B & OK\\
+I & BIND5ELNS & 09:30:55  & CEQ & N & B & B & OK\\
+D & BCH21 & 09:34:34  & CEQ & N & B & B & OK\\
+\bottomrule
+\end{longtable}
+\subsection*{ABISv1 bagtag: 4003000031 / Outbound flight: TU100 / Inbound flight: IB100}
+\paragraph{}
+\begin{longtable}{cccccccc}    \toprule
+\rowcolor{white!50}
+\textbf{Ev.Type} & \textbf{Ev.Location} & \textbf{Ev.Time} & \textbf{Outbound} & \textbf{Bag Stat.} & \textbf{BIE} & \textbf{toBIE} & \textbf{Matches ABISv2} \\\midrule
+P & CI0101 & 07:41:28  & CEQ &  &  &  & NOK\\
+B & CRWAC & 07:41:28  & CEQ &  &  &  & OK\\
+S & CIR3IND0506 & 07:47:50  & CEQ & E & CIR3 & BEH1 & NOK\\
+T & CIR3IND0506 & 07:47:50  & CEQ & E & CIR3 & BEH1 & NOK\\
+S & CIR3IND0506 & 07:47:50  & CEQ & E & CIR3 & BEH1 & NOK\\
+T & CR123IND11 & 07:49:50  & CEQ & E & CR123 & BEH1 & NOK\\
+T & CRL4IND01 & 07:51:26  & CEQ & E & CRL4 & BEH1 & NOK\\
+I & AIND23DD & 07:52:09  & CEQ & E & A & BEH1 & NOK\\
+D & ACH45EBS & 07:55:42  & CEQ & E & A &  & NOK\\
+I & EBSININD & 07:56:29  & CEQ & E & EBS & EBS & OK\\
+D & EBSDN10 & 07:56:39  & CEQ & E & EBS &  & NOK\\
+T & EBSOUTIND & 08:02:29  & CEQ & E & EAS & BEH1 & NOK\\
+I & EBSININD & 08:02:50  & CEQ & E & EBS & EBS & OK\\
+D & EBSUP10 & 08:03:00  & CEQ & E & EBS &  & OK\\
+T & EBSOUTIND & 08:10:31  & CEQ & N & EAS & B & OK\\
+I & BIND5ELNS & 08:12:11  & CEQ & N & B & B & OK\\
+D & BCH21 & 08:15:50  & CEQ & N & B &  & OK\\
+\bottomrule
+\end{longtable}
+\pagebreak
+\section*{Simulation bag 33}
+\subsection*{ABISv2 bagtag: 4002000032 Outbound flight: TU100}
+\paragraph{}
+\begin{longtable}{cccccccc}    \toprule
+\rowcolor{white!50}
+\textbf{Ev.Type} & \textbf{Ev.Location} & \textbf{Ev.Time} & \textbf{Outbound} & \textbf{Bag Stat.} & \textbf{BIE} & \textbf{toBIE} & \textbf{Matches ABISv1} \\\midrule
+B & CRWAC & 09:06:06  & CEQ &  &  &  & OK\\
+S & CIR5IND01 & 09:12:19  & CEQ & E & CIR5 & BEH2 & NOK\\
+T & CIR5IND01 & 09:12:19  & CEQ & E & CIR5 & BEH2 & NOK\\
+T & CR456IND09 & 09:14:01  & CEQ & E & CR456 & BEH2 & NOK\\
+T & CRL4IND01 & 09:15:37  & CEQ & E & CRL4 & BEH2 & NOK\\
+I & BIND11DD & 09:16:29  & CEQ & E & B & BEH2 & NOK\\
+D & BCH45EBS & 09:20:04  & CEQ & E & B & BEH2 & NOK\\
+I & EBSININD & 09:21:07  & CEQ & E & EBS & EBS & OK\\
+D & EBSDN10 & 09:21:17  & CEQ & E & EBS & EBS & OK\\
+T & EBSOUTIND & 09:27:08  & CEQ & E & EAS & BEH2 & NOK\\
+I & EBSININD & 09:27:28  & CEQ & E & EBS & EBS & OK\\
+D & EBSUP10 & 09:27:38  & CEQ & E & EBS & EBS & OK\\
+T & EBSOUTIND & 09:35:10  & CEQ & N & EAS & B & OK\\
+I & BIND5ELNS & 09:36:51  & CEQ & N & B & B & OK\\
+D & BCH21 & 09:40:30  & CEQ & N & B & B & OK\\
+\bottomrule
+\end{longtable}
+\subsection*{ABISv1 bagtag: 4003000032 / Outbound flight: TU100 / Inbound flight: IB100}
+\paragraph{}
+\begin{longtable}{cccccccc}    \toprule
+\rowcolor{white!50}
+\textbf{Ev.Type} & \textbf{Ev.Location} & \textbf{Ev.Time} & \textbf{Outbound} & \textbf{Bag Stat.} & \textbf{BIE} & \textbf{toBIE} & \textbf{Matches ABISv2} \\\midrule
+P & CI0101 & 07:41:28  & CEQ &  &  &  & NOK\\
+B & CRWAC & 07:41:28  & CEQ &  &  &  & OK\\
+S & CIR5IND01 & 07:47:42  & CEQ & E & CIR5 & BEH1 & NOK\\
+T & CIR5IND01 & 07:47:42  & CEQ & E & CIR5 & BEH1 & NOK\\
+S & CIR5IND01 & 07:47:42  & CEQ & E & CIR5 & BEH1 & NOK\\
+T & CR456IND09 & 07:49:36  & CEQ & E & CR456 & BEH1 & NOK\\
+T & CRL4IND01 & 07:51:07  & CEQ & E & CRL4 & BEH1 & NOK\\
+I & AIND23DD & 07:51:51  & CEQ & E & A & BEH1 & NOK\\
+D & ACH45EBS & 07:55:24  & CEQ & E & A &  & NOK\\
+I & EBSININD & 07:56:11  & CEQ & E & EBS & EBS & OK\\
+D & EBSDN10 & 07:56:21  & CEQ & E & EBS &  & OK\\
+T & EBSOUTIND & 08:02:12  & CEQ & E & EAS & BEH1 & NOK\\
+I & EBSININD & 08:02:33  & CEQ & E & EBS & EBS & OK\\
+D & EBSUP10 & 08:02:43  & CEQ & E & EBS &  & OK\\
+T & EBSOUTIND & 08:10:14  & CEQ & N & EAS & B & OK\\
+I & BIND5ELNS & 08:11:56  & CEQ & N & B & B & OK\\
+D & BCH21 & 08:15:35  & CEQ & N & B &  & OK\\
+\bottomrule
+\end{longtable}
+\pagebreak
+\section*{Simulation bag 34}
+\subsection*{ABISv2 bagtag: 4002000033 Outbound flight: TU100}
+\paragraph{}
+\begin{longtable}{cccccccc}    \toprule
+\rowcolor{white!50}
+\textbf{Ev.Type} & \textbf{Ev.Location} & \textbf{Ev.Time} & \textbf{Outbound} & \textbf{Bag Stat.} & \textbf{BIE} & \textbf{toBIE} & \textbf{Matches ABISv1} \\\midrule
+B & CRWAC & 09:06:06  & CEQ &  &  &  & OK\\
+S & CIR11IND11 & 09:11:56  & CEQ & E & CIR11 & BEH2 & NOK\\
+T & CIR11IND11 & 09:11:56  & CEQ & E & CIR11 & BEH2 & NOK\\
+P & CRPF3 & 09:12:27  & CEQ & E & CRPF3 &  & OK\\
+\bottomrule
+\end{longtable}
+\subsection*{ABISv1 bagtag: 4003000033 / Outbound flight: TU100 / Inbound flight: IB100}
+\paragraph{}
+\begin{longtable}{cccccccc}    \toprule
+\rowcolor{white!50}
+\textbf{Ev.Type} & \textbf{Ev.Location} & \textbf{Ev.Time} & \textbf{Outbound} & \textbf{Bag Stat.} & \textbf{BIE} & \textbf{toBIE} & \textbf{Matches ABISv2} \\\midrule
+P & CI0101 & 07:41:28  & CEQ &  &  &  & NOK\\
+B & CRWAC & 07:41:28  & CEQ &  &  &  & OK\\
+S & CIR11IND11 & 07:47:20  & CEQ & E & CIR11 & BEH1 & NOK\\
+T & CIR11IND11 & 07:47:20  & CEQ & E & CIR11 & BEH1 & NOK\\
+S & CIR11IND11 & 07:47:20  & CEQ & E & CIR11 & BEH1 & NOK\\
+P & CRPF3 & 07:47:51  & CEQ & E & CRPF3 &  & OK\\
+\bottomrule
+\end{longtable}
+\pagebreak
+\section*{Simulation bag 35}
+\subsection*{ABISv2 bagtag: 4002000034 Outbound flight: TU100}
+\paragraph{}
+\begin{longtable}{cccccccc}    \toprule
+\rowcolor{white!50}
+\textbf{Ev.Type} & \textbf{Ev.Location} & \textbf{Ev.Time} & \textbf{Outbound} & \textbf{Bag Stat.} & \textbf{BIE} & \textbf{toBIE} & \textbf{Matches ABISv1} \\\midrule
+B & CRWAC & 09:06:06  & CEQ &  &  &  & OK\\
+P & CIR14 & 09:12:04  & CEQ & E & CIR14 &  & OK\\
+S & CIR14 & 09:12:04  & CEQ & E & CIR14 &  & OK\\
+P & CRPE3 & 09:13:47  & CEQ & E & CREL3 &  & OK\\
+\bottomrule
+\end{longtable}
+\subsection*{ABISv1 bagtag: 4003000034 / Outbound flight: TU100 / Inbound flight: IB100}
+\paragraph{}
+\begin{longtable}{cccccccc}    \toprule
+\rowcolor{white!50}
+\textbf{Ev.Type} & \textbf{Ev.Location} & \textbf{Ev.Time} & \textbf{Outbound} & \textbf{Bag Stat.} & \textbf{BIE} & \textbf{toBIE} & \textbf{Matches ABISv2} \\\midrule
+P & CI0101 & 07:41:28  & CEQ &  &  &  & NOK\\
+B & CRWAC & 07:41:28  & CEQ &  &  &  & OK\\
+S & CIR14 & 07:47:28  & CEQ & E & CIR14 &  & OK\\
+P & CIR14 & 07:47:28  & CEQ & E & CIR14 &  & OK\\
+S & CIR14 & 07:47:28  & CEQ & E & CIR14 &  & OK\\
+P & CRPE3 & 07:49:02  & CEQ & E & CREL3 &  & OK\\
+\bottomrule
+\end{longtable}
+\pagebreak
+\section*{Simulation bag 36}
+\subsection*{ABISv2 bagtag: 4002000035 Outbound flight: TU100}
+\paragraph{}
+\begin{longtable}{cccccccc}    \toprule
+\rowcolor{white!50}
+\textbf{Ev.Type} & \textbf{Ev.Location} & \textbf{Ev.Time} & \textbf{Outbound} & \textbf{Bag Stat.} & \textbf{BIE} & \textbf{toBIE} & \textbf{Matches ABISv1} \\\midrule
+B & CRWAC & 09:06:06  & CEQ &  &  &  & OK\\
+P & PBTRF2 & 09:11:34  & CEQ & E & INB2 &  & OK\\
+I & PS1IND2TRF & 09:11:35  & CEQ & E & PS1 & BEH2 & NOK\\
+P & PS1POS2TRF & 09:11:36  & CEQ & E & PS1 &  & OK\\
+D & PS1CH05EBS & 09:11:37  & CEQ & E & PS1 & BEH2 & OK\\
+I & EBSININD & 09:14:51  & CEQ & E & EBS & EBS & OK\\
+D & EBSDN10 & 09:15:01  & CEQ & E & EBS & EBS & OK\\
+T & EBSOUTIND & 09:20:52  & CEQ & E & EAS & BEH2 & NOK\\
+I & EBSININD & 09:21:13  & CEQ & E & EBS & EBS & OK\\
+D & EBSDN10 & 09:21:23  & CEQ & E & EBS & EBS & OK\\
+T & EBSOUTIND & 09:27:13  & CEQ & E & EAS & BEH2 & NOK\\
+I & EBSININD & 09:27:34  & CEQ & E & EBS & EBS & OK\\
+D & EBSUP10 & 09:27:44  & CEQ & E & EBS & EBS & OK\\
+T & EBSOUTIND & 09:35:15  & CEQ & N & EAS & B & OK\\
+I & BIND5ELNS & 09:36:56  & CEQ & N & B & B & OK\\
+S & BIND5ELNS & 09:36:56  & CEQ & N & B & B & OK\\
+D & BCH21 & 09:40:35  & CEQ & N & B & B & OK\\
+\bottomrule
+\end{longtable}
+\subsection*{ABISv1 bagtag: 4003000035 / Outbound flight: TU100 / Inbound flight: IB100}
+\paragraph{}
+\begin{longtable}{cccccccc}    \toprule
+\rowcolor{white!50}
+\textbf{Ev.Type} & \textbf{Ev.Location} & \textbf{Ev.Time} & \textbf{Outbound} & \textbf{Bag Stat.} & \textbf{BIE} & \textbf{toBIE} & \textbf{Matches ABISv2} \\\midrule
+P & CI0101 & 07:41:28  & CEQ &  &  &  & NOK\\
+B & CRWAC & 07:41:28  & CEQ &  &  &  & OK\\
+P & PBTRF2 & 07:46:56  & CEQ & E & INB2 &  & OK\\
+I & PS1IND2TRF & 07:46:58  & CEQ & E & PS1 & BEH1 & NOK\\
+P & PS1POS2TRF & 07:46:59  & CEQ & E & PS1 &  & OK\\
+D & PS1CH05EBS & 07:47:00  & CEQ & E & PS1 &  & OK\\
+I & EBSININD & 07:50:13  & CEQ & E & EBS & EBS & OK\\
+D & EBSDN10 & 07:50:23  & CEQ & E & EBS &  & OK\\
+T & EBSOUTIND & 07:56:13  & CEQ & E & EAS & BEH1 & NOK\\
+I & EBSININD & 07:56:34  & CEQ & E & EBS & EBS & OK\\
+D & EBSUP10 & 07:56:44  & CEQ & E & EBS &  & OK\\
+T & EBSOUTIND & 08:04:15  & CEQ & N & EAS & B & OK\\
+S & BIND5ELNS & 08:05:57  & CEQ & N & B & B & OK\\
+I & BIND5ELNS & 08:05:57  & CEQ & N & B & B & OK\\
+S & BIND5ELNS & 08:05:57  & CEQ & N & B & B & OK\\
+D & BCH21 & 08:09:36  & CEQ & N & B &  & OK\\
+\bottomrule
+\end{longtable}
+\pagebreak
+\section*{Simulation bag 37}
+\subsection*{ABISv2 bagtag: 4002000036 Outbound flight: TU100}
+\paragraph{}
+\begin{longtable}{cccccccc}    \toprule
+\rowcolor{white!50}
+\textbf{Ev.Type} & \textbf{Ev.Location} & \textbf{Ev.Time} & \textbf{Outbound} & \textbf{Bag Stat.} & \textbf{BIE} & \textbf{toBIE} & \textbf{Matches ABISv1} \\\midrule
+B & CRWAC & 09:06:06  & CEQ &  &  &  & OK\\
+I & AIND5ELNS & 09:11:44  & CEQ & E & A & BEH2 & NOK\\
+S & AIND5ELNS & 09:11:44  & CEQ & E & A & BEH2 & NOK\\
+D & ACH45EBS & 09:13:49  & CEQ & E & A & BEH2 & OK\\
+I & EBSININD & 09:14:44  & CEQ & E & EBS & EBS & OK\\
+D & EBSDN10 & 09:14:54  & CEQ & E & EBS & EBS & OK\\
+T & EBSOUTIND & 09:20:44  & CEQ & E & EAS & BEH2 & NOK\\
+I & EBSININD & 09:21:05  & CEQ & E & EBS & EBS & OK\\
+D & EBSDN10 & 09:21:15  & CEQ & E & EBS & EBS & OK\\
+T & EBSOUTIND & 09:27:05  & CEQ & E & EAS & BEH2 & NOK\\
+I & EBSININD & 09:27:26  & CEQ & E & EBS & EBS & OK\\
+D & EBSUP10 & 09:27:36  & CEQ & E & EBS & EBS & OK\\
+T & EBSOUTIND & 09:35:08  & CEQ & N & EAS & B & OK\\
+I & BIND5ELNS & 09:36:48  & CEQ & N & B & B & OK\\
+D & BCH21 & 09:40:27  & CEQ & N & B & B & OK\\
+\bottomrule
+\end{longtable}
+\subsection*{ABISv1 bagtag: 4003000036 / Outbound flight: TU100 / Inbound flight: IB100}
+\paragraph{}
+\begin{longtable}{cccccccc}    \toprule
+\rowcolor{white!50}
+\textbf{Ev.Type} & \textbf{Ev.Location} & \textbf{Ev.Time} & \textbf{Outbound} & \textbf{Bag Stat.} & \textbf{BIE} & \textbf{toBIE} & \textbf{Matches ABISv2} \\\midrule
+P & CI0101 & 07:41:28  & CEQ &  &  &  & NOK\\
+B & CRWAC & 07:41:28  & CEQ &  &  &  & OK\\
+S & AIND5ELNS & 07:47:00  & CEQ & E & A & BEH1 & NOK\\
+I & AIND5ELNS & 07:47:00  & CEQ & E & A & BEH1 & NOK\\
+S & AIND5ELNS & 07:47:00  & CEQ & E & A & BEH1 & NOK\\
+D & ACH45EBS & 07:49:05  & CEQ & E & A &  & OK\\
+I & EBSININD & 07:49:49  & CEQ & E & EBS & EBS & OK\\
+D & EBSDN10 & 07:49:59  & CEQ & E & EBS &  & OK\\
+T & EBSOUTIND & 07:55:50  & CEQ & E & EAS & BEH1 & NOK\\
+I & EBSININD & 07:56:10  & CEQ & E & EBS & EBS & OK\\
+D & EBSDN10 & 07:56:21  & CEQ & E & EBS &  & OK\\
+T & EBSOUTIND & 08:02:11  & CEQ & E & EAS & BEH1 & NOK\\
+I & EBSININD & 08:02:31  & CEQ & E & EBS & EBS & OK\\
+D & EBSUP10 & 08:02:42  & CEQ & E & EBS &  & OK\\
+T & EBSOUTIND & 08:10:12  & CEQ & N & EAS & B & OK\\
+I & BIND5ELNS & 08:11:54  & CEQ & N & B & B & OK\\
+D & BCH21 & 08:15:33  & CEQ & N & B &  & OK\\
+\bottomrule
+\end{longtable}
+\pagebreak
+\section*{Simulation bag 38}
+\subsection*{ABISv2 bagtag: 4002000037 Outbound flight: TU100}
+\paragraph{}
+\begin{longtable}{cccccccc}    \toprule
+\rowcolor{white!50}
+\textbf{Ev.Type} & \textbf{Ev.Location} & \textbf{Ev.Time} & \textbf{Outbound} & \textbf{Bag Stat.} & \textbf{BIE} & \textbf{toBIE} & \textbf{Matches ABISv1} \\\midrule
+B & CRWAC & 09:06:06  & CEQ &  &  &  & OK\\
+P & PBTRF5 & 09:11:37  & CEQ & E & INB5 &  & OK\\
+P & TPBIND08 & 09:13:55  & CEQ & E & TPB &  & OK\\
+S & TPBIND08 & 09:13:55  & CEQ & E & TPB &  & OK\\
+P & TPL3IND13 & 09:16:08  & CEQ & E & TPL3 &  & OK\\
+T & CRL4IND01 & 09:16:44  & CEQ & E & CRL4 & BEH2 & NOK\\
+I & BIND11DD & 09:17:30  & CEQ & E & B & BEH2 & NOK\\
+D & BCH45EBS & 09:21:05  & CEQ & E & B & BEH2 & NOK\\
+I & EBSININD & 09:22:08  & CEQ & E & EBS & EBS & OK\\
+D & EBSUP10 & 09:22:18  & CEQ & E & EBS & EBS & OK\\
+T & EBSOUTIND & 09:29:49  & CEQ & N & EAS & B & OK\\
+I & BIND5ELNS & 09:31:30  & CEQ & N & B & B & OK\\
+D & BCH21 & 09:35:09  & CEQ & N & B & B & OK\\
+\bottomrule
+\end{longtable}
+\subsection*{ABISv1 bagtag: 4003000037 / Outbound flight: TU100 / Inbound flight: IB100}
+\paragraph{}
+\begin{longtable}{cccccccc}    \toprule
+\rowcolor{white!50}
+\textbf{Ev.Type} & \textbf{Ev.Location} & \textbf{Ev.Time} & \textbf{Outbound} & \textbf{Bag Stat.} & \textbf{BIE} & \textbf{toBIE} & \textbf{Matches ABISv2} \\\midrule
+P & CI0101 & 07:41:28  & CEQ &  &  &  & NOK\\
+B & CRWAC & 07:41:28  & CEQ &  &  &  & OK\\
+P & PBTRF5 & 07:47:00  & CEQ & E & INB5 &  & OK\\
+S & TPBIND08 & 07:49:30  & CEQ & E & TPB &  & OK\\
+P & TPBIND08 & 07:49:30  & CEQ & E & TPB &  & OK\\
+S & TPBIND08 & 07:49:30  & CEQ & E & TPB &  & OK\\
+P & TPL3IND13 & 07:51:48  & CEQ & E & TPL3 &  & OK\\
+T & CRL4IND01 & 07:52:15  & CEQ & E & CRL4 & BEH1 & NOK\\
+I & AIND23DD & 07:53:02  & CEQ & E & A & BEH1 & NOK\\
+D & ACH45EBS & 07:56:35  & CEQ & E & A &  & NOK\\
+I & EBSININD & 07:57:21  & CEQ & E & EBS & EBS & OK\\
+D & EBSUP10 & 07:57:31  & CEQ & E & EBS &  & OK\\
+T & EBSOUTIND & 08:05:02  & CEQ & N & EAS & B & OK\\
+I & BIND5ELNS & 08:06:42  & CEQ & N & B & B & OK\\
+D & BCH21 & 08:10:21  & CEQ & N & B &  & OK\\
+\bottomrule
+\end{longtable}
+\pagebreak
+\section*{Simulation bag 39}
+\subsection*{ABISv2 bagtag: 4002000038 Outbound flight: TU100}
+\paragraph{}
+\begin{longtable}{cccccccc}    \toprule
+\rowcolor{white!50}
+\textbf{Ev.Type} & \textbf{Ev.Location} & \textbf{Ev.Time} & \textbf{Outbound} & \textbf{Bag Stat.} & \textbf{BIE} & \textbf{toBIE} & \textbf{Matches ABISv1} \\\midrule
+B & CRWAC & 09:06:06  & CEQ &  &  &  & OK\\
+P & PBTRF8 & 09:11:46  & CEQ & E & INB8 &  & OK\\
+P & TPBIND08 & 09:13:23  & CEQ & E & TPB &  & OK\\
+S & TPBIND08 & 09:13:23  & CEQ & E & TPB &  & OK\\
+P & TPL3IND13 & 09:15:40  & CEQ & E & TPL3 &  & OK\\
+T & CRL4IND01 & 09:16:07  & CEQ & E & CRL4 & BEH2 & NOK\\
+I & BIND11DD & 09:16:49  & CEQ & E & B & BEH2 & NOK\\
+D & BCH45EBS & 09:20:24  & CEQ & E & B & BEH2 & NOK\\
+I & EBSININD & 09:21:27  & CEQ & E & EBS & EBS & OK\\
+D & EBSUP10 & 09:21:37  & CEQ & E & EBS & EBS & OK\\
+T & EBSOUTIND & 09:29:07  & CEQ & N & EAS & B & OK\\
+I & BIND5ELNS & 09:30:48  & CEQ & N & B & B & OK\\
+D & BCH21 & 09:34:27  & CEQ & N & B & B & OK\\
+\bottomrule
+\end{longtable}
+\subsection*{ABISv1 bagtag: 4003000038 / Outbound flight: TU100 / Inbound flight: IB100}
+\paragraph{}
+\begin{longtable}{cccccccc}    \toprule
+\rowcolor{white!50}
+\textbf{Ev.Type} & \textbf{Ev.Location} & \textbf{Ev.Time} & \textbf{Outbound} & \textbf{Bag Stat.} & \textbf{BIE} & \textbf{toBIE} & \textbf{Matches ABISv2} \\\midrule
+P & CI0101 & 07:41:28  & CEQ &  &  &  & NOK\\
+B & CRWAC & 07:41:28  & CEQ &  &  &  & OK\\
+P & PBTRF8 & 07:47:02  & CEQ & E & INB8 &  & OK\\
+S & TPBIND08 & 07:48:43  & CEQ & E & TPB &  & OK\\
+P & TPBIND08 & 07:48:43  & CEQ & E & TPB &  & OK\\
+S & TPBIND08 & 07:48:43  & CEQ & E & TPB &  & OK\\
+P & TPL3IND13 & 07:51:02  & CEQ & E & TPL3 &  & OK\\
+T & CRL4IND01 & 07:51:30  & CEQ & E & CRL4 & BEH1 & NOK\\
+I & AIND23DD & 07:52:12  & CEQ & E & A & BEH1 & NOK\\
+D & ACH45EBS & 07:55:45  & CEQ & E & A &  & NOK\\
+I & EBSININD & 07:56:31  & CEQ & E & EBS & EBS & OK\\
+D & EBSDN10 & 07:56:42  & CEQ & E & EBS &  & NOK\\
+T & EBSOUTIND & 08:02:32  & CEQ & E & EAS & BEH1 & NOK\\
+I & EBSININD & 08:02:52  & CEQ & E & EBS & EBS & OK\\
+D & EBSUP10 & 08:03:02  & CEQ & E & EBS &  & OK\\
+T & EBSOUTIND & 08:10:33  & CEQ & N & EAS & B & OK\\
+I & BIND5ELNS & 08:12:14  & CEQ & N & B & B & OK\\
+D & BCH21 & 08:15:53  & CEQ & N & B &  & OK\\
+\bottomrule
+\end{longtable}
+\pagebreak
+\section*{Simulation bag 40}
+\subsection*{ABISv2 bagtag: 4002000039 Outbound flight: TU100}
+\paragraph{}
+\begin{longtable}{cccccccc}    \toprule
+\rowcolor{white!50}
+\textbf{Ev.Type} & \textbf{Ev.Location} & \textbf{Ev.Time} & \textbf{Outbound} & \textbf{Bag Stat.} & \textbf{BIE} & \textbf{toBIE} & \textbf{Matches ABISv1} \\\midrule
+B & CRWAC & 09:06:06  & CEQ &  &  &  & OK\\
+P & PBTRM2 & 09:11:37  & CEQ & W & INB2 &  & OK\\
+\bottomrule
+\end{longtable}
+\subsection*{ABISv1 bagtag: 4003000039 / Outbound flight: TU100 / Inbound flight: IB100}
+\paragraph{}
+\begin{longtable}{cccccccc}    \toprule
+\rowcolor{white!50}
+\textbf{Ev.Type} & \textbf{Ev.Location} & \textbf{Ev.Time} & \textbf{Outbound} & \textbf{Bag Stat.} & \textbf{BIE} & \textbf{toBIE} & \textbf{Matches ABISv2} \\\midrule
+P & CI0101 & 07:41:28  & CEQ &  &  &  & NOK\\
+B & CRWAC & 07:41:28  & CEQ &  &  &  & OK\\
+P & PBTRM2 & 07:47:00  & CEQ & W & INB2 &  & OK\\
+\bottomrule
+\end{longtable}
+\pagebreak
+\section*{Simulation bag 41}
+\subsection*{ABISv2 bagtag: 4002000040 Outbound flight: TU100}
+\paragraph{}
+\begin{longtable}{cccccccc}    \toprule
+\rowcolor{white!50}
+\textbf{Ev.Type} & \textbf{Ev.Location} & \textbf{Ev.Time} & \textbf{Outbound} & \textbf{Bag Stat.} & \textbf{BIE} & \textbf{toBIE} & \textbf{Matches ABISv1} \\\midrule
+B & CRWAC & 09:06:06  & CEQ &  &  &  & OK\\
+P & PBTRM4 & 09:11:44  & CEQ & W & INB4 &  & OK\\
+\bottomrule
+\end{longtable}
+\subsection*{ABISv1 bagtag: 4003000040 / Outbound flight: TU100 / Inbound flight: IB100}
+\paragraph{}
+\begin{longtable}{cccccccc}    \toprule
+\rowcolor{white!50}
+\textbf{Ev.Type} & \textbf{Ev.Location} & \textbf{Ev.Time} & \textbf{Outbound} & \textbf{Bag Stat.} & \textbf{BIE} & \textbf{toBIE} & \textbf{Matches ABISv2} \\\midrule
+P & CI0101 & 07:41:28  & CEQ &  &  &  & NOK\\
+B & CRWAC & 07:41:28  & CEQ &  &  &  & OK\\
+P & PBTRM4 & 07:47:06  & CEQ & W & INB4 &  & OK\\
+\bottomrule
+\end{longtable}
+\pagebreak
+\section*{Simulation bag 42}
+\subsection*{ABISv2 bagtag: 4002000041 Outbound flight: TU100}
+\paragraph{}
+\begin{longtable}{cccccccc}    \toprule
+\rowcolor{white!50}
+\textbf{Ev.Type} & \textbf{Ev.Location} & \textbf{Ev.Time} & \textbf{Outbound} & \textbf{Bag Stat.} & \textbf{BIE} & \textbf{toBIE} & \textbf{Matches ABISv1} \\\midrule
+B & CRWAC & 09:06:06  & CEQ &  &  &  & OK\\
+P & PBTRM7 & 09:11:44  & CEQ & W & INB7 &  & OK\\
+\bottomrule
+\end{longtable}
+\subsection*{ABISv1 bagtag: 4003000041 / Outbound flight: TU100 / Inbound flight: IB100}
+\paragraph{}
+\begin{longtable}{cccccccc}    \toprule
+\rowcolor{white!50}
+\textbf{Ev.Type} & \textbf{Ev.Location} & \textbf{Ev.Time} & \textbf{Outbound} & \textbf{Bag Stat.} & \textbf{BIE} & \textbf{toBIE} & \textbf{Matches ABISv2} \\\midrule
+P & CI0101 & 07:41:28  & CEQ &  &  &  & NOK\\
+B & CRWAC & 07:41:28  & CEQ &  &  &  & OK\\
+P & PBTRM7 & 07:47:06  & CEQ & W & INB7 &  & OK\\
+\bottomrule
+\end{longtable}
+\pagebreak
+\section*{Simulation bag 43}
+\subsection*{ABISv2 bagtag: 4002000042 Outbound flight: TU100}
+\paragraph{}
+\begin{longtable}{cccccccc}    \toprule
+\rowcolor{white!50}
+\textbf{Ev.Type} & \textbf{Ev.Location} & \textbf{Ev.Time} & \textbf{Outbound} & \textbf{Bag Stat.} & \textbf{BIE} & \textbf{toBIE} & \textbf{Matches ABISv1} \\\midrule
+B & CRWAC & 09:06:06  & CEQ &  &  &  & OK\\
+I & EBSININD & 09:11:39  & CEQ & E & EBS & EBS & OK\\
+D & EBSDN10 & 09:11:49  & CEQ & E & EBS & EBS & OK\\
+T & EBSOUTIND & 09:17:42  & CEQ & E & EAS & BEH2 & NOK\\
+I & EBSININD & 09:18:02  & CEQ & E & EBS & EBS & OK\\
+D & EBSDN10 & 09:18:12  & CEQ & E & EBS & EBS & OK\\
+T & EBSOUTIND & 09:22:13  & CEQ & E & EAS & BEH2 & NOK\\
+I & EBSININD & 09:22:34  & CEQ & E & EBS & EBS & OK\\
+D & EBSUP10 & 09:22:44  & CEQ & E & EBS & EBS & OK\\
+T & EBSOUTIND & 09:30:12  & CEQ & N & EAS & B & OK\\
+I & BIND5ELNS & 09:31:53  & CEQ & N & B & B & OK\\
+S & BIND5ELNS & 09:31:53  & CEQ & N & B & B & OK\\
+D & BCH21 & 09:35:32  & CEQ & N & B & B & OK\\
+\bottomrule
+\end{longtable}
+\subsection*{ABISv1 bagtag: 4003000042 / Outbound flight: TU100 / Inbound flight: IB100}
+\paragraph{}
+\begin{longtable}{cccccccc}    \toprule
+\rowcolor{white!50}
+\textbf{Ev.Type} & \textbf{Ev.Location} & \textbf{Ev.Time} & \textbf{Outbound} & \textbf{Bag Stat.} & \textbf{BIE} & \textbf{toBIE} & \textbf{Matches ABISv2} \\\midrule
+P & CI0101 & 07:41:28  & CEQ &  &  &  & NOK\\
+B & CRWAC & 07:41:28  & CEQ &  &  &  & OK\\
+I & EBSININD & 07:47:02  & CEQ & E & EBS & EBS & OK\\
+D & EBSDN10 & 07:47:12  & CEQ & E & EBS &  & OK\\
+T & EBSOUTIND & 07:53:05  & CEQ & E & EAS & BEH1 & NOK\\
+I & EBSININD & 07:53:27  & CEQ & E & EBS & EBS & OK\\
+D & EBSDN10 & 07:53:37  & CEQ & E & EBS &  & OK\\
+T & EBSOUTIND & 07:57:30  & CEQ & E & EAS & BEH1 & NOK\\
+I & EBSININD & 07:57:51  & CEQ & E & EBS & EBS & OK\\
+D & EBSUP10 & 07:58:01  & CEQ & E & EBS &  & OK\\
+T & EBSOUTIND & 08:05:31  & CEQ & N & EAS & B & OK\\
+S & BIND5ELNS & 08:07:11  & CEQ & N & B & B & OK\\
+I & BIND5ELNS & 08:07:11  & CEQ & N & B & B & OK\\
+S & BIND5ELNS & 08:07:11  & CEQ & N & B & B & OK\\
+D & BCH21 & 08:10:50  & CEQ & N & B &  & OK\\
+\bottomrule
+\end{longtable}
+\pagebreak
+\section*{Simulation bag 44}
+\subsection*{ABISv2 bagtag: 4002000043 Outbound flight: TU100}
+\paragraph{}
+\begin{longtable}{cccccccc}    \toprule
+\rowcolor{white!50}
+\textbf{Ev.Type} & \textbf{Ev.Location} & \textbf{Ev.Time} & \textbf{Outbound} & \textbf{Bag Stat.} & \textbf{BIE} & \textbf{toBIE} & \textbf{Matches ABISv1} \\\midrule
+B & CRWAC & 09:06:06  & CEQ &  &  &  & OK\\
+I & PS1IND5SRTC & 09:11:54  & CEQ & E & PS1 & BEH2 & NOK\\
+P & PS1POS5SRTC & 09:11:55  & CEQ & E & PS1 &  & OK\\
+I & EBSININD & 09:13:28  & CEQ & E & EBS & EBS & OK\\
+D & PS1CH05EBS & 09:13:36  & CEQ & E & PS1 & EBS & OK\\
+D & EBSDN10 & 09:13:38  & CEQ & E & EBS & EBS & OK\\
+T & EBSOUTIND & 09:19:31  & CEQ & E & EAS & BEH2 & NOK\\
+I & EBSININD & 09:20:02  & CEQ & E & EBS & EBS & OK\\
+D & EBSDN10 & 09:20:12  & CEQ & E & EBS & EBS & OK\\
+T & EBSOUTIND & 09:22:18  & CEQ & E & EAS & BEH2 & NOK\\
+I & EBSININD & 09:22:41  & CEQ & E & EBS & EBS & OK\\
+D & EBSUP10 & 09:22:51  & CEQ & E & EBS & EBS & NOK\\
+T & EBSOUTIND & 09:30:15  & CEQ & N & EAS & B & OK\\
+I & BIND5ELNS & 09:31:55  & CEQ & N & B & B & OK\\
+S & BIND5ELNS & 09:31:55  & CEQ & N & B & B & OK\\
+D & BCH21 & 09:35:35  & CEQ & N & B & B & OK\\
+\bottomrule
+\end{longtable}
+\subsection*{ABISv1 bagtag: 4003000043 / Outbound flight: TU100 / Inbound flight: IB100}
+\paragraph{}
+\begin{longtable}{cccccccc}    \toprule
+\rowcolor{white!50}
+\textbf{Ev.Type} & \textbf{Ev.Location} & \textbf{Ev.Time} & \textbf{Outbound} & \textbf{Bag Stat.} & \textbf{BIE} & \textbf{toBIE} & \textbf{Matches ABISv2} \\\midrule
+P & CI0101 & 07:41:28  & CEQ &  &  &  & NOK\\
+B & CRWAC & 07:41:28  & CEQ &  &  &  & OK\\
+I & PS1IND5SRTC & 07:47:18  & CEQ & E & PS1 & BEH1 & NOK\\
+P & PS1POS5SRTC & 07:47:19  & CEQ & E & PS1 &  & OK\\
+D & PS1CH05EBS & 07:48:59  & CEQ & E & PS1 &  & OK\\
+I & EBSININD & 07:49:09  & CEQ & E & EBS & EBS & OK\\
+D & EBSDN10 & 07:49:19  & CEQ & E & EBS &  & OK\\
+T & EBSOUTIND & 07:55:11  & CEQ & E & EAS & BEH1 & NOK\\
+I & EBSININD & 07:55:31  & CEQ & E & EBS & EBS & OK\\
+D & EBSDN10 & 07:55:41  & CEQ & E & EBS &  & OK\\
+T & EBSOUTIND & 08:01:31  & CEQ & E & EAS & BEH1 & NOK\\
+I & EBSININD & 08:01:53  & CEQ & E & EBS & EBS & OK\\
+D & EBSDN09 & 08:02:03  & CEQ & E & EBS &  & NOK\\
+T & EBSOUTIND & 08:07:48  & CEQ & N & EAS & B & OK\\
+S & BIND5ELNS & 08:09:29  & CEQ & N & B & B & OK\\
+I & BIND5ELNS & 08:09:29  & CEQ & N & B & B & OK\\
+S & BIND5ELNS & 08:09:29  & CEQ & N & B & B & OK\\
+D & BCH21 & 08:13:08  & CEQ & N & B &  & OK\\
+\bottomrule
+\end{longtable}
+\pagebreak
+\section*{Simulation bag 45}
+\subsection*{ABISv2 bagtag: 4002000044 Outbound flight: TU100}
+\paragraph{}
+\begin{longtable}{cccccccc}    \toprule
+\rowcolor{white!50}
+\textbf{Ev.Type} & \textbf{Ev.Location} & \textbf{Ev.Time} & \textbf{Outbound} & \textbf{Bag Stat.} & \textbf{BIE} & \textbf{toBIE} & \textbf{Matches ABISv1} \\\midrule
+B & CRWAC & 09:06:06  & CEQ &  &  &  & OK\\
+\bottomrule
+\end{longtable}
+\subsection*{ABISv1 bagtag: 4003000044 / Outbound flight: TU100 / Inbound flight: IB100}
+\paragraph{}
+\begin{longtable}{cccccccc}    \toprule
+\rowcolor{white!50}
+\textbf{Ev.Type} & \textbf{Ev.Location} & \textbf{Ev.Time} & \textbf{Outbound} & \textbf{Bag Stat.} & \textbf{BIE} & \textbf{toBIE} & \textbf{Matches ABISv2} \\\midrule
+P & CI0101 & 07:41:28  & CEQ &  &  &  & NOK\\
+B & CRWAC & 07:41:28  & CEQ &  &  &  & OK\\
+\bottomrule
+\end{longtable}
+\pagebreak
+\section*{Simulation bag 46}
+\subsection*{ABISv2 bagtag: 4002000045 Outbound flight: TU100}
+\paragraph{}
+\begin{longtable}{cccccccc}    \toprule
+\rowcolor{white!50}
+\textbf{Ev.Type} & \textbf{Ev.Location} & \textbf{Ev.Time} & \textbf{Outbound} & \textbf{Bag Stat.} & \textbf{BIE} & \textbf{toBIE} & \textbf{Matches ABISv1} \\\midrule
+B & CRWDL & 09:06:08  & CEQ &  &  &  & OK\\
+P & CI0102 & 09:06:08  & CEQ &  &  &  & OK\\
+S & CIR1IND0910 & 09:12:05  & CEQ & E & CIR1 & BEH2 & NOK\\
+T & CIR1IND0910 & 09:12:05  & CEQ & E & CIR1 & BEH2 & NOK\\
+I & BIND22DD & 09:15:32  & CEQ & E & B & BEH2 & NOK\\
+D & BCH45EBS & 09:19:05  & CEQ & E & B & BEH2 & OK\\
+I & EBSININD & 09:20:02  & CEQ & E & EBS & EBS & OK\\
+D & EBSDN10 & 09:20:12  & CEQ & E & EBS & EBS & OK\\
+T & EBSOUTIND & 09:22:21  & CEQ & E & EAS & BEH2 & NOK\\
+I & EBSININD & 09:22:41  & CEQ & E & EBS & EBS & OK\\
+D & EBSUP10 & 09:22:51  & CEQ & E & EBS & EBS & NOK\\
+T & EBSOUTIND & 09:30:15  & CEQ & N & EAS & B & OK\\
+I & BIND5ELNS & 09:31:56  & CEQ & N & B & B & OK\\
+D & BCH20 & 09:35:35  & CEQ & N & B & B & OK\\
+\bottomrule
+\end{longtable}
+\subsection*{ABISv1 bagtag: 4003000045 / Outbound flight: TU100 / Inbound flight: IB100}
+\paragraph{}
+\begin{longtable}{cccccccc}    \toprule
+\rowcolor{white!50}
+\textbf{Ev.Type} & \textbf{Ev.Location} & \textbf{Ev.Time} & \textbf{Outbound} & \textbf{Bag Stat.} & \textbf{BIE} & \textbf{toBIE} & \textbf{Matches ABISv2} \\\midrule
+P & CI0102 & 07:41:30  & CEQ &  &  &  & OK\\
+B & CRWDL & 07:41:30  & CEQ &  &  &  & OK\\
+S & CIR1IND0910 & 07:47:18  & CEQ & E & CIR1 & BEH1 & NOK\\
+T & CIR1IND0910 & 07:47:18  & CEQ & E & CIR1 & BEH1 & NOK\\
+S & CIR1IND0910 & 07:47:18  & CEQ & E & CIR1 & BEH1 & NOK\\
+I & BIND22DD & 07:50:33  & CEQ & E & B & BEH1 & NOK\\
+D & BCH45EBS & 07:54:06  & CEQ & E & B &  & OK\\
+I & EBSININD & 07:54:56  & CEQ & E & EBS & EBS & OK\\
+D & EBSDN10 & 07:55:06  & CEQ & E & EBS &  & OK\\
+T & EBSOUTIND & 08:00:57  & CEQ & E & EAS & BEH1 & NOK\\
+I & EBSININD & 08:01:18  & CEQ & E & EBS & EBS & OK\\
+D & EBSDN10 & 08:01:28  & CEQ & E & EBS &  & OK\\
+T & EBSOUTIND & 08:07:18  & CEQ & N & EAS & B & OK\\
+I & BIND5ELNS & 08:08:59  & CEQ & N & B & B & OK\\
+D & BCH20 & 08:12:38  & CEQ & N & B &  & OK\\
+\bottomrule
+\end{longtable}
+\pagebreak
+\section*{Simulation bag 47}
+\subsection*{ABISv2 bagtag: 4002000046 Outbound flight: TU100}
+\paragraph{}
+\begin{longtable}{cccccccc}    \toprule
+\rowcolor{white!50}
+\textbf{Ev.Type} & \textbf{Ev.Location} & \textbf{Ev.Time} & \textbf{Outbound} & \textbf{Bag Stat.} & \textbf{BIE} & \textbf{toBIE} & \textbf{Matches ABISv1} \\\midrule
+B & CRWDL & 09:06:08  & CEQ &  &  &  & OK\\
+P & CI0102 & 09:06:08  & CEQ &  &  &  & OK\\
+S & CIR3IND0506 & 09:12:42  & CEQ & E & CIR3 & BEH2 & NOK\\
+T & CIR3IND0506 & 09:12:42  & CEQ & E & CIR3 & BEH2 & NOK\\
+I & BIND11DD & 09:15:32  & CEQ & E & B & BEH2 & NOK\\
+D & BCH45EBS & 09:19:07  & CEQ & E & B & BEH2 & OK\\
+I & EBSININD & 09:20:14  & CEQ & E & EBS & EBS & OK\\
+D & EBSDN10 & 09:20:25  & CEQ & E & EBS & EBS & OK\\
+T & EBSOUTIND & 09:26:15  & CEQ & E & EAS & BEH2 & NOK\\
+I & EBSININD & 09:26:35  & CEQ & E & EBS & EBS & OK\\
+D & EBSDN09 & 09:26:45  & CEQ & E & EBS & EBS & NOK\\
+T & EBSOUTIND & 09:32:32  & CEQ & N & EAS & B & OK\\
+I & BIND5ELNS & 09:34:13  & CEQ & N & B & B & OK\\
+D & BCH20 & 09:37:52  & CEQ & N & B & B & OK\\
+\bottomrule
+\end{longtable}
+\subsection*{ABISv1 bagtag: 4003000046 / Outbound flight: TU100 / Inbound flight: IB100}
+\paragraph{}
+\begin{longtable}{cccccccc}    \toprule
+\rowcolor{white!50}
+\textbf{Ev.Type} & \textbf{Ev.Location} & \textbf{Ev.Time} & \textbf{Outbound} & \textbf{Bag Stat.} & \textbf{BIE} & \textbf{toBIE} & \textbf{Matches ABISv2} \\\midrule
+P & CI0102 & 07:41:30  & CEQ &  &  &  & OK\\
+B & CRWDL & 07:41:30  & CEQ &  &  &  & OK\\
+S & CIR3IND0506 & 07:47:50  & CEQ & E & CIR3 & BEH1 & NOK\\
+T & CIR3IND0506 & 07:47:50  & CEQ & E & CIR3 & BEH1 & NOK\\
+S & CIR3IND0506 & 07:47:50  & CEQ & E & CIR3 & BEH1 & NOK\\
+I & BIND11DD & 07:50:42  & CEQ & E & B & BEH1 & NOK\\
+D & BCH45EBS & 07:54:17  & CEQ & E & B &  & OK\\
+I & EBSININD & 07:55:22  & CEQ & E & EBS & EBS & OK\\
+D & EBSDN10 & 07:55:32  & CEQ & E & EBS &  & OK\\
+T & EBSOUTIND & 08:01:23  & CEQ & E & EAS & BEH1 & NOK\\
+I & EBSININD & 08:01:44  & CEQ & E & EBS & EBS & OK\\
+D & EBSUP10 & 08:01:54  & CEQ & E & EBS &  & NOK\\
+T & EBSOUTIND & 08:07:26  & CEQ & N & EAS & B & OK\\
+I & BIND5ELNS & 08:09:07  & CEQ & N & B & B & OK\\
+D & BCH20 & 08:12:46  & CEQ & N & B &  & OK\\
+\bottomrule
+\end{longtable}
+\pagebreak
+\section*{Simulation bag 48}
+\subsection*{ABISv2 bagtag: 4002000047 Outbound flight: TU100}
+\paragraph{}
+\begin{longtable}{cccccccc}    \toprule
+\rowcolor{white!50}
+\textbf{Ev.Type} & \textbf{Ev.Location} & \textbf{Ev.Time} & \textbf{Outbound} & \textbf{Bag Stat.} & \textbf{BIE} & \textbf{toBIE} & \textbf{Matches ABISv1} \\\midrule
+B & CRWDL & 09:06:08  & CEQ &  &  &  & OK\\
+P & CI0102 & 09:06:08  & CEQ &  &  &  & OK\\
+S & CIR5IND01 & 09:12:33  & CEQ & E & CIR5 & BEH2 & NOK\\
+T & CIR5IND01 & 09:12:33  & CEQ & E & CIR5 & BEH2 & NOK\\
+I & AIND14DD & 09:17:08  & CEQ & E & A & BEH2 & NOK\\
+D & ACH45EBS & 09:20:43  & CEQ & E & A & BEH2 & OK\\
+I & EBSININD & 09:21:46  & CEQ & E & EBS & EBS & OK\\
+D & EBSUP10 & 09:21:56  & CEQ & E & EBS & EBS & OK\\
+T & EBSOUTIND & 09:29:28  & CEQ & N & EAS & B & OK\\
+I & BIND5ELNS & 09:31:10  & CEQ & N & B & B & OK\\
+D & BCH20 & 09:34:49  & CEQ & N & B & B & OK\\
+\bottomrule
+\end{longtable}
+\subsection*{ABISv1 bagtag: 4003000047 / Outbound flight: TU100 / Inbound flight: IB100}
+\paragraph{}
+\begin{longtable}{cccccccc}    \toprule
+\rowcolor{white!50}
+\textbf{Ev.Type} & \textbf{Ev.Location} & \textbf{Ev.Time} & \textbf{Outbound} & \textbf{Bag Stat.} & \textbf{BIE} & \textbf{toBIE} & \textbf{Matches ABISv2} \\\midrule
+P & CI0102 & 07:41:30  & CEQ &  &  &  & OK\\
+B & CRWDL & 07:41:30  & CEQ &  &  &  & OK\\
+S & CIR5IND01 & 07:47:42  & CEQ & E & CIR5 & BEH1 & NOK\\
+T & CIR5IND01 & 07:47:42  & CEQ & E & CIR5 & BEH1 & NOK\\
+S & CIR5IND01 & 07:47:42  & CEQ & E & CIR5 & BEH1 & NOK\\
+I & AIND14DD & 07:52:23  & CEQ & E & A & BEH1 & NOK\\
+D & ACH45EBS & 07:55:58  & CEQ & E & A &  & OK\\
+I & EBSININD & 07:57:00  & CEQ & E & EBS & EBS & OK\\
+D & EBSUP10 & 07:57:10  & CEQ & E & EBS &  & OK\\
+T & EBSOUTIND & 08:04:40  & CEQ & N & EAS & B & OK\\
+I & BIND5ELNS & 08:06:22  & CEQ & N & B & B & OK\\
+D & BCH20 & 08:10:01  & CEQ & N & B &  & OK\\
+\bottomrule
+\end{longtable}
+\pagebreak
+\section*{Simulation bag 49}
+\subsection*{ABISv2 bagtag: 4002000048 Outbound flight: TU100}
+\paragraph{}
+\begin{longtable}{cccccccc}    \toprule
+\rowcolor{white!50}
+\textbf{Ev.Type} & \textbf{Ev.Location} & \textbf{Ev.Time} & \textbf{Outbound} & \textbf{Bag Stat.} & \textbf{BIE} & \textbf{toBIE} & \textbf{Matches ABISv1} \\\midrule
+B & CRWDL & 09:06:08  & CEQ &  &  &  & OK\\
+P & CI0102 & 09:06:08  & CEQ &  &  &  & OK\\
+S & CIR11IND11 & 09:12:07  & CEQ & E & CIR11 & BEH2 & NOK\\
+T & CIR11IND11 & 09:12:07  & CEQ & E & CIR11 & BEH2 & NOK\\
+P & CIR11CH01SRTA & 09:12:45  & CEQ & E & CR11D &  & OK\\
+I & AIND14DD & 09:13:02  & CEQ & E & A & BEH2 & NOK\\
+D & ACH45EBS & 09:16:37  & CEQ & E & A & BEH2 & OK\\
+I & EBSININD & 09:17:42  & CEQ & E & EBS & EBS & OK\\
+D & EBSDN10 & 09:17:52  & CEQ & E & EBS & EBS & OK\\
+T & EBSOUTIND & 09:22:13  & CEQ & E & EAS & BEH2 & NOK\\
+I & EBSININD & 09:22:34  & CEQ & E & EBS & EBS & OK\\
+D & EBSUP10 & 09:22:44  & CEQ & E & EBS & EBS & OK\\
+T & EBSOUTIND & 09:30:10  & CEQ & N & EAS & B & OK\\
+I & BIND5ELNS & 09:31:51  & CEQ & N & B & B & OK\\
+D & BCH20 & 09:35:30  & CEQ & N & B & B & OK\\
+\bottomrule
+\end{longtable}
+\subsection*{ABISv1 bagtag: 4003000048 / Outbound flight: TU100 / Inbound flight: IB100}
+\paragraph{}
+\begin{longtable}{cccccccc}    \toprule
+\rowcolor{white!50}
+\textbf{Ev.Type} & \textbf{Ev.Location} & \textbf{Ev.Time} & \textbf{Outbound} & \textbf{Bag Stat.} & \textbf{BIE} & \textbf{toBIE} & \textbf{Matches ABISv2} \\\midrule
+P & CI0102 & 07:41:30  & CEQ &  &  &  & OK\\
+B & CRWDL & 07:41:30  & CEQ &  &  &  & OK\\
+S & CIR11IND11 & 07:47:30  & CEQ & E & CIR11 & BEH1 & NOK\\
+T & CIR11IND11 & 07:47:30  & CEQ & E & CIR11 & BEH1 & NOK\\
+S & CIR11IND11 & 07:47:30  & CEQ & E & CIR11 & BEH1 & NOK\\
+P & CIR11CH01SRTA & 07:48:09  & CEQ & E & CR11D &  & OK\\
+I & AIND14DD & 07:48:24  & CEQ & E & A & BEH1 & NOK\\
+D & ACH45EBS & 07:51:59  & CEQ & E & A &  & OK\\
+I & EBSININD & 07:53:02  & CEQ & E & EBS & EBS & OK\\
+D & EBSDN10 & 07:53:12  & CEQ & E & EBS &  & OK\\
+T & EBSOUTIND & 07:57:29  & CEQ & E & EAS & BEH1 & NOK\\
+I & EBSININD & 07:57:49  & CEQ & E & EBS & EBS & OK\\
+D & EBSUP10 & 07:57:59  & CEQ & E & EBS &  & OK\\
+T & EBSOUTIND & 08:05:31  & CEQ & N & EAS & B & OK\\
+I & BIND5ELNS & 08:07:11  & CEQ & N & B & B & OK\\
+D & BCH20 & 08:10:50  & CEQ & N & B &  & OK\\
+\bottomrule
+\end{longtable}
+\pagebreak
+\section*{Simulation bag 50}
+\subsection*{ABISv2 bagtag: 4002000049 Outbound flight: TU100}
+\paragraph{}
+\begin{longtable}{cccccccc}    \toprule
+\rowcolor{white!50}
+\textbf{Ev.Type} & \textbf{Ev.Location} & \textbf{Ev.Time} & \textbf{Outbound} & \textbf{Bag Stat.} & \textbf{BIE} & \textbf{toBIE} & \textbf{Matches ABISv1} \\\midrule
+B & CRWDL & 09:06:08  & CEQ &  &  &  & OK\\
+P & CI0102 & 09:06:08  & CEQ &  &  &  & OK\\
+P & CIR14 & 09:12:16  & CEQ & E & CIR14 &  & OK\\
+S & CIR14 & 09:12:16  & CEQ & E & CIR14 &  & OK\\
+P & CIR14CH05CARE & 09:13:00  & CEQ & E & CIR14 &  & OK\\
+\bottomrule
+\end{longtable}
+\subsection*{ABISv1 bagtag: 4003000049 / Outbound flight: TU100 / Inbound flight: IB100}
+\paragraph{}
+\begin{longtable}{cccccccc}    \toprule
+\rowcolor{white!50}
+\textbf{Ev.Type} & \textbf{Ev.Location} & \textbf{Ev.Time} & \textbf{Outbound} & \textbf{Bag Stat.} & \textbf{BIE} & \textbf{toBIE} & \textbf{Matches ABISv2} \\\midrule
+P & CI0102 & 07:41:30  & CEQ &  &  &  & OK\\
+B & CRWDL & 07:41:30  & CEQ &  &  &  & OK\\
+S & CIR14 & 07:47:28  & CEQ & E & CIR14 &  & OK\\
+P & CIR14 & 07:47:28  & CEQ & E & CIR14 &  & OK\\
+S & CIR14 & 07:47:28  & CEQ & E & CIR14 &  & OK\\
+P & CIR14CH05CARE & 07:48:06  & CEQ & E & CIR14 &  & OK\\
+\bottomrule
+\end{longtable}
+\pagebreak
+\end{document}

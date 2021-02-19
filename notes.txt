@@ -1,0 +1,20 @@
+Notes regarding sorting events mimatches:
+
+EBS events:
+Early bags distribution across EBS lanes varies over time and reproducing the exact same load distribution schema is almost impossible.
+
+PS1POS2TRF:
+ABISv2 Fabricom topology is still not aligned with ABISv1 version
+
+Routes load-balacing:
+Regardless of the platform version, Fabricom LSS has to balance bags flows loads when 2 or more routes are provided (i.e: From TA to EBS).
+
+BLH2 and BTH2:
+Due to separate configuration tables in ABISv1 and v2, overurles were mistakenly not aligned.
+
+Chute allocation load-balancing:
+US flight(TU7xxx)local bags load is spread over chute 32 and 33.
+
+
+
+

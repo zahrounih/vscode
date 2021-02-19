@@ -1,0 +1,62 @@
+{
+    "ABIS":1,
+    "simId":115,
+    "sdate":"20210208",
+    "start_bag": 4008005760,
+    "number_bag": 1439,
+    "handler":"AL",
+    "sorter":"A",
+    "depArr":"D",
+    "Flights": [
+      
+        {
+            "Fli": "TU ",
+            "Num": " 104",
+            "Suff": "",
+            "timeS": "Early"
+        },
+        {
+            "Fli": "TU ",
+            "Num": "1004",
+            "Suff": "",
+            "timeS": "Early"
+        },
+        {
+            "Fli": "TU ",
+            "Num": " 204",
+            "Suff": "",
+            "timeS": "Ontime"
+        },
+        {
+            "Fli": "TU ",
+            "Num": "5004",
+            "Suff": "",
+            "timeS": "Ontime"
+        },
+        {
+            "Fli": "TU ",
+            "Num": "8004",
+            "Suff": "A",
+            "timeS": "Ontime"
+        },
+        {
+            "Fli": "TU ",
+            "Num": "7004",
+            "Suff": "",
+            "timeS": "Ontime"
+        },
+        {
+            "Fli": "FR ",
+            "Num": "1004",
+            "Suff": "",
+            "timeS": "Late"
+        },
+        {
+            "Fli": "FR ",
+            "Num": " 104",
+            "Suff": "",
+            "timeS": "Late"
+        }
+    ]
+    
+}
