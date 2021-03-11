@@ -1,13 +1,13 @@
 
-    [string] $handler ="AL"
+    [string] $handler ="AP"
     [string] $sorter="A"
     [string] $depArr="D"
-    [Int]$simid=115
+    [Int]$simid=190
     
     $JsonPath="c:\power\flights.JSON"
-    $texFile="c:\BAHA\63_Report"+$handler+"_"+$sorter+".tex"
+    $texFile="c:\BAHA\68_Report"+$handler+"_"+$sorter+".tex"
     NeW-item $texFile
-    [string] $Server= "PO-X012569\SQLEXPRESS"
+    [string] $Server= "PO-X014795"
     [string] $Database = "LSSNG_hz"
    
     
@@ -33,7 +33,7 @@
     
     function GetBagTag ($index,$handler,$sorter,$lss)
     {
-        [string] $Server= "PO-X012569\SQLEXPRESS"
+        [string] $Server= "PO-X014795"
         [string] $Database = "LSSNG_hz"
         [string] $SQL_getTag= $("SELECT DISTINCT xbpm_tag from vw_compare_$lss`_$handler`_$sorter`_$depArr where bag_index = $index")
         $result=ExecuteSqlQuery $Server $Database $SQL_getTag
@@ -42,16 +42,25 @@
 
     function GetBagSorting ($index,$handler,$sorter,$lss)
     {
-        [string] $Server= "PO-X012569\SQLEXPRESS"
+        [string] $Server= "PO-X014795"
         [string] $Database = "LSSNG_hz"
         [string] $SQL_getTag= $("SELECT DISTINCT xbsm_sorstr from vw_compare_$lss`_$handler`_$sorter`_$depArr where bag_index = $index")
         $result=ExecuteSqlQuery $Server $Database $SQL_getTag
         return $result
     }
 
+    function GetiBagSorting ($index,$handler,$sorter,$lss)
+    {
+        [string] $Server= "PO-X014795"
+        [string] $Database = "LSSNG_hz"
+        [string] $SQL_getTag= $("SELECT DISTINCT xbsm_sorstr from vw_compare_$lss`_$handler`_$sorter`_A where xbpm_tag = $index")
+        $result=ExecuteSqlQuery $Server $Database $SQL_getTag
+        return $result
+    }
+
     function GetBagFlight ($index,$handler,$sorter,$lss)
     {
-        [string] $Server= "PO-X012569\SQLEXPRESS"
+        [string] $Server= "PO-X014795"
         [string] $Database = "LSSNG_hz"
         [string] $SQL_getTag= $("SELECT DISTINCT Flight from vw_compare_$lss`_$handler`_$sorter`_$depArr where bag_index = $index")
         $result=ExecuteSqlQuery $Server $Database $SQL_getTag
@@ -60,16 +69,16 @@
 
     function GetBagiFlight ($index,$handler,$sorter,$lss)
     {
-        [string] $Server= "PO-X012569\SQLEXPRESS"
+        [string] $Server= "PO-X014795"
         [string] $Database = "LSSNG_hz"
-        [string] $SQL_getTag= $("SELECT DISTINCT iFlight from vw_compare_$lss`_$handler`_$sorter`_$depArr where bag_index = $index and iFlight <>''")
+        [string] $SQL_getTag= $("SELECT DISTINCT iFlight from vw_compare_$lss`_$handler`_$sorter`_$depArr where xbpm_tag = $index and iFlight <>''")
         $result=ExecuteSqlQuery $Server $Database $SQL_getTag
         return $result
     }
 
     function Allocs ($idSim,$abisSim,$time)
     {
-        [string] $Server= "PO-X012569\SQLEXPRESS"
+        [string] $Server= "PO-X014795"
         [string] $Database = "LSSNG_hz"
         [string] $SQL_getAllocs= $("select convert(varchar,xalc1_sdt, 105) as sdt
 		,Flight
@@ -294,7 +303,7 @@
     
     
     $i=0
-    for ($i = 1; $i -le 10; $i++)
+    for ($i = 1; $i -le 1440; $i++)
     {
         $bag=$i
         
@@ -521,10 +530,15 @@
             
         $topics= $resultsDataTables | Format-Table
         Add-Content -Path $texFile -value "\section*{Simulation bag $l}"
-        $resultTagss=GetBagTag $bag $handler $sorter $lss
-        $resultBagSorting=GetBagSorting $bag $handler $sorter $lss
-        $resultiFlight=GetBagiFlight $bag $handler $sorter $lss
-        [string]$tag=$resultTagss[0]
+        
+        [string]$tag=$bagTag
+ 
+ 
+ 
+        #$resultTagss=GetBagTag $bag $handler $sorter $lss
+        $resultBagSorting=GetiBagSorting $tag $handler $sorter $lss
+        $resultiFlight=GetBagiFlight $tag $handler $sorter $lss
+        
         [string]$bagStr=$resultBagSorting[0]
         
         if ($null -eq $resultiFlight) {
