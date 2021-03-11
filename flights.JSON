@@ -1,59 +1,59 @@
 {
-    "ABIS":1,
-    "simId":115,
-    "sdate":"20210208",
-    "start_bag": 4008005760,
+    "ABIS":2,
+    "simId":189,
+    "sdate":"20210311",
+    "start_bag": 401100000,
     "number_bag": 1439,
-    "handler":"AL",
+    "handler":"AP",
     "sorter":"A",
     "depArr":"D",
     "Flights": [
       
         {
             "Fli": "TU ",
-            "Num": " 104",
+            "Num": " 100",
             "Suff": "",
             "timeS": "Early"
         },
         {
             "Fli": "TU ",
-            "Num": "1004",
+            "Num": "1000",
             "Suff": "",
             "timeS": "Early"
         },
         {
             "Fli": "TU ",
-            "Num": " 204",
+            "Num": " 200",
             "Suff": "",
             "timeS": "Ontime"
         },
         {
             "Fli": "TU ",
-            "Num": "5004",
+            "Num": "5000",
             "Suff": "",
             "timeS": "Ontime"
         },
         {
             "Fli": "TU ",
-            "Num": "8004",
+            "Num": "8000",
             "Suff": "A",
             "timeS": "Ontime"
         },
         {
             "Fli": "TU ",
-            "Num": "7004",
+            "Num": "7000",
             "Suff": "",
             "timeS": "Ontime"
         },
         {
             "Fli": "FR ",
-            "Num": "1004",
+            "Num": "1000",
             "Suff": "",
             "timeS": "Late"
         },
         {
             "Fli": "FR ",
-            "Num": " 104",
+            "Num": " 100",
             "Suff": "",
             "timeS": "Late"
         }

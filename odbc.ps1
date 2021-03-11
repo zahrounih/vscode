@@ -1,12 +1,12 @@
 
 $AbisVersion=2
-$start_bag=5008000180
-$number_bag = 179
-$handler="AL"
+$start_bag=4011000000
+$number_bag = 189
+$handler="AP"
 $sorter="A"
 $depArr="A"
 
-$params = @{'server'='PO-X012569\SQLEXPRESS';'Database'='LSSNG_hz'}
+$params = @{'server'='PO-X014795';'Database'='LSSNG_hz'}
 $tableName="LSSNG$($AbisVersion)_$($handler)_$($sorter)_$($depArr)"
 
 $sqlCommand= "Use BTS_PROD
@@ -123,7 +123,7 @@ $conn.Close()
 Invoke-Sqlcmd @params -Query $sqlTruncateTable
 #Invoke-Sqlcmd @params -Query $sqlCreateView
 
-$connectionString = "Data Source=PO-X012569\SQLEXPRESS; Integrated Security=True;Initial Catalog=LSSNG_hz;"
+$connectionString = "Data Source=PO-X014795; Integrated Security=True;Initial Catalog=LSSNG_hz;"
 $bulkCopy = new-object ("Data.SqlClient.SqlBulkCopy") $connectionString
 $bulkCopy.DestinationTableName = $tableName
 $bulkCopy.WriteToServer($dataset.Tables[0])

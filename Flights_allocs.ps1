@@ -1,6 +1,6 @@
-$Path="c:\power\flights.JSON"
-$params = @{'server'='PO-X012569\SQLEXPRESS';'Database'='LSSNG_hz'}
-$connectionString = "Data Source=PO-X012569\SQLEXPRESS; Integrated Security=True;Initial Catalog=LSSNG_hz;"
+$Path="C:\Repo\vscode\flights.JSON"
+$params = @{'server'='PO-X014795';'Database'='LSSNG_hz'}
+$connectionString = "Data Source=PO-X014795; Integrated Security=True;Initial Catalog=LSSNG_hz;"
 $bulkCopy = new-object ("Data.SqlClient.SqlBulkCopy") $connectionString
 $myObject = Get-Content -Path $Path | ConvertFrom-Json
 $simulationId =$myObject.simID
